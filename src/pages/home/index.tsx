@@ -1,22 +1,16 @@
 import {
   View,
-  SafeAreaView,
   Text,
   TouchableOpacity,
-  Modal,
-  TextInput,
-  TouchableWithoutFeedback,
 } from "react-native";
 import Styles from "./styles";
-import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
+import { List, UserCircle } from "phosphor-react-native";
+import Header from "../header";
 
 export default function Home() {
   return (
     <View style={Styles.container}>
-      <View style={Styles.top}>
-        <Text>aaaa</Text>
-      </View>
+      <Header/>
 
       <View style={Styles.body}>
         <Text>bbbbb</Text>

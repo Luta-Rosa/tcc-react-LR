@@ -1,28 +1,35 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-      },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
 
-      top: {
-        flex: 0.5,
-        backgroundColor: '#E86687',
-        alignItems: "center",
-        justifyContent: "center",
-      },
+  // ------------------------------------
 
-      body: {
-        flex: 4,
-        backgroundColor: '#D9FFE5',
-      },
+  top: {
+    flex: 0.4,
+    backgroundColor: "#E86687",
+  },
 
-      bottom: {
-        flex: 1,
-        backgroundColor: '#FFD4DF',
+  linha: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
 
-      },
+  // ------------------------------------
 
+  body: {
+    flex: 4,
+    
+  },
+
+  // ------------------------------------
+
+  bottom: {
+    flex: 0.4,
+    backgroundColor: "#E86687",
+  },
 });
 
 export default Styles;
