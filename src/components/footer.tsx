@@ -1,21 +1,21 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 
 export default function Footer() {
   return (
     <View style={styles.footer}>
         <TouchableOpacity>
-        <FontAwesome name="house" size={38} color="#FFFFFF" />
+        <MaterialCommunityIcons name="home" size={38} color="#FFFFFF" />
       </TouchableOpacity>
 
       <TouchableOpacity>
-        <FontAwesome name="comment" size={38} color="#FFFFFF" />
+        <MaterialCommunityIcons name="chat" size={38} color="#FFFFFF" />
       </TouchableOpacity>
 
       <TouchableOpacity>
-        <FontAwesome name="location-pin" size={38} color="#FFFFFF" />
+        <MaterialCommunityIcons name="map-marker" size={38} color="#FFFFFF" />
       </TouchableOpacity>
     </View>
   );

@@ -1,16 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function Header() {
   return (
     <View style={styles.topo}>
       <TouchableOpacity>
-        <FontAwesome name="bars" size={38} color="#FFFFFF" />
+        <MaterialCommunityIcons name="menu" size={38} color="#FFFFFF" />
       </TouchableOpacity>
 
       <TouchableOpacity>
-        <FontAwesome name="user-circle" size={38} color="#FFFFFF" />
+        <MaterialCommunityIcons name="account-circle" size={38} color="#FFFFFF" />
       </TouchableOpacity>
     </View>
   );

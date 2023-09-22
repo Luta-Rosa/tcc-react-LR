@@ -1,10 +1,10 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import Header from "../components/header";
 
 export default function Home() {
   return (
     <View style={styles.container}>
+    
     </View>
   );
 }
