@@ -6,7 +6,8 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import Home from "./src/screens/home";
+import Home from "./src/screens/Home/home";
+import Cadastro from './src/screens/Cadastro/Cadastro';
 import Header from "./src/components/header";
 import Footer from "./src/components/footer";
 
@@ -16,7 +17,7 @@ export default function App() {
       <StatusBar />
       <Header />
       <ScrollView style={styles.content}>
-        <Home />
+        <Cadastro />
       </ScrollView>
       <Footer />
     </SafeAreaView>
