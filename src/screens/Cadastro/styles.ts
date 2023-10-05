@@ -1,13 +1,17 @@
 import { StyleSheet, View } from 'react-native';
 
-export const ContentHeader = style.View``;
- Description
-  ContentBody
-   ContentFooter
+export const Container = styles.View``;
+export const ContentHeader = styles.View``;
+export const Description = styles.Text``;
+export const ContentBody = styles.view``;
+export const ContentFooter = styles.view``;
+export const Title = styles.Text``;
+export const ViewButton = styles.View``;
 
 const Styles = StyleSheet.create({
-conteiner:{
+container:{
 
+   padding: 40,
 }
 })
 

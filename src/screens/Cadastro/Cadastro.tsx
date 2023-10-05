@@ -1,24 +1,24 @@
 import React from "react";
-import { View, Text, SafeAreaView, ContentHeader, Description, ContentBody, ContentFooter} from "react-native";
-import Style from "./styles";
+import { View, Text, SafeAreaView, } from "react-native";
+import {ContentHeader, Description, ContentBody, ContentFooter, Title, Container, ViewButton} from "./styles";
+import Styles from "./styles";
 
 export default function Cadastro() {
   return (
     <>
     <SafeAreaView>
-      <View>
+      <Container>
 
         <ContentHeader>
-
-       <Text></Text>
+       <Title></Title>
       <Description></Description>
-      <Description>
-      </Description>
-
+     
+     <ViewButton></ViewButton>
       </ContentHeader>
       <ContentBody></ContentBody>
       <ContentFooter></ContentFooter>
-      </View>
+     
+      </Container>
       </SafeAreaView>
     </>
   );
