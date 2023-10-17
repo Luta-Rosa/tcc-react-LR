@@ -1,3 +1,4 @@
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -6,12 +7,21 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import Home from "./src/screens/Home/home";
-import Priv from "./src/screens/Privacidade/Priv";
-import User from "./src/screens/User/User";
 import Header from "./src/components/header";
 import Footer from "./src/components/footer";
-import React from "react";
+
+import About from "./src/screens/About/About";
+import Cuidados from "./src/screens/Cuidados/Cuidados";
+import Editar from "./src/screens/Editar/Editar";
+import Guia from "./src/screens/Guia/Guia";
+import Home from "./src/screens/Home/home";
+import Notificacao from "./src/screens/Notification/Notificacao";
+import Open from "./src/screens/Open/Open";
+import Priv from "./src/screens/Privacidade/Priv";
+import Mente from "./src/screens/Saude-mental/Mente";
+import Settings from "./src/screens/Settings/Settings";
+import User from "./src/screens/User/User";
+
 
 export default function App() {
   return (
@@ -19,7 +29,7 @@ export default function App() {
       <StatusBar />
       {/* <Header /> */}
       <ScrollView style={style.content}>
-        <User />
+        <Editar />
       </ScrollView>
       {/* <Footer /> */}
     </SafeAreaView>

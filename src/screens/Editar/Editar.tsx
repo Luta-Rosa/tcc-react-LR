@@ -24,7 +24,7 @@ const UserScreen = () => {
     // Certifique-se de validar e tratar os dados adequadamente.
 
     Alert.alert(
-      "Dados do usuário enviados",
+      "Dados do usuário editados",
       `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nLocalização: ${location}`
     );
   };
@@ -42,7 +42,7 @@ const UserScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Back cor="#E86687" seta="#FFFFFF" />
+      <Back cor="#496F99" seta="#FFFFFF" />
       <View style={styles.backgroundImg}>
         <TouchableOpacity style={styles.imagePicker} onPress={handleImagePick}>
           <View style={styles.imageContainer}>
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    backgroundColor: "#D9FFE5",
+    backgroundColor: "#D4E8FF",
     width: 360,
     height: 320,
     borderRadius: 20,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   },
 
   backgroundImg: {
-    backgroundColor: "#E86687",
+    backgroundColor: "#496F99",
     height: 161,
     width: "auto",
   },
