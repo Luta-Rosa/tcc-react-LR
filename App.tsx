@@ -7,24 +7,23 @@ import {
   StatusBar,
 } from "react-native";
 import Home from "./src/screens/Home/home";
-import Cadastro from "./src/screens/Cadastro/Cadastro";
 import Header from "./src/components/header";
 import Footer from "./src/components/footer";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={style.container}>
       <StatusBar />
       <Header />
-      <ScrollView style={styles.content}>
-        <Cadastro />
+      <ScrollView style={style.content}>
+        <Home />
       </ScrollView>
       <Footer />
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
   container: {
     height: "100%",
     display: "flex",
