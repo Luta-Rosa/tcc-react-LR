@@ -3,8 +3,8 @@ import { View, Text, Dimensions, Image } from "react-native";
 import { StyleSheet } from 'react-native';
 import Carousel from "../../../node_modules/react-native-snap-carousel";
 
-const SLIDER_WIDTH = Dimensions.get('window').width
-const ITEM_WIDTH = SLIDER_WIDTH * 0.88
+const SLIDER_WIDTH = Dimensions.get('window').width;
+const ITEM_WIDTH = SLIDER_WIDTH * 0.88;
 
 type Props = {
   item: {
@@ -37,7 +37,6 @@ function carouselCardItem({item, index}: Props){
     </View>
   )
 }
-
 
 export default function Home() {
   return (

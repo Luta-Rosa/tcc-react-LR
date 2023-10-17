@@ -11,6 +11,7 @@ import Priv from "./src/screens/Privacidade/Priv";
 import Header from "./src/components/header";
 import Footer from "./src/components/footer";
 import React from "react";
+import 
 
 export default function App() {
   return (
@@ -18,7 +19,7 @@ export default function App() {
       <StatusBar />
       <Header />
       <ScrollView style={style.content}>
-        <Priv />
+        <Home />
       </ScrollView>
       <Footer />
     </SafeAreaView>
