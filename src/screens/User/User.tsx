@@ -42,12 +42,12 @@ const UserScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Back cor="#E86687" seta="#FFFFFF"/>
+      <Back cor="#E86687" seta="#FFFFFF" />
       <View style={styles.backgroundImg}>
         <TouchableOpacity style={styles.imagePicker} onPress={handleImagePick}>
           <View style={styles.imageContainer}>
             {userImage ? (
-              <Image source={{ uri: userImage }} style={styles.userImage} />
+              <Image source={{ uri: userImage }} />
             ) : (
               <Text style={styles.imagePickerText}>
                 Selecionar Imagem do Usuário
@@ -96,6 +96,7 @@ const UserScreen = () => {
       </View>
 
       <Button title="Salvar" onPress={handleUserSubmit} />
+
     </View>
   );
 };
@@ -114,7 +115,6 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 16,
     height: 36,
-    borderColor: "#DDD", // Cor da borda
     borderRadius: 10,
     backgroundColor: "#D9D9D9",
     marginBottom: 10,
@@ -126,19 +126,13 @@ const styles = StyleSheet.create({
   },
 
   imageContainer: {
-    backgroundColor: "#D4E8FF", // Cor de fundo para o contêiner da imagem
-    width: 160,
-    height: 160,
+    backgroundColor: "#D4E8FF",
+    width: 190,
+    height: 190,
     borderRadius: 100,
-    marginTop: 50,
+    marginTop: 20,
     alignItems: "center",
     justifyContent: "center",
-  },
-
-  userImage: {
-    width: 160,
-    height: 160,
-    borderRadius: 75,
   },
 
   imagePickerText: {
@@ -158,7 +152,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: '4%',
+    marginLeft: "4%",
   },
 
   inputDiv: {
@@ -168,7 +162,7 @@ const styles = StyleSheet.create({
   backgroundImg: {
     backgroundColor: "#E86687",
     height: 161,
-    width: 400,
+    width: "auto",
   },
 });
 
