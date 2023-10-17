@@ -8,20 +8,20 @@ import {
 } from "react-native";
 import Home from "./src/screens/Home/home";
 import Priv from "./src/screens/Privacidade/Priv";
+import User from "./src/screens/User/User";
 import Header from "./src/components/header";
 import Footer from "./src/components/footer";
 import React from "react";
-import 
 
 export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar />
-      <Header />
+      {/* <Header /> */}
       <ScrollView style={style.content}>
-        <Home />
+        <User />
       </ScrollView>
-      <Footer />
+      {/* <Footer /> */}
     </SafeAreaView>
   );
 }

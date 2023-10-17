@@ -1,11 +1,175 @@
-import React from "react";
-import { View, Text } from "react-native";
-import Styles from "./styles";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
+import Back from "../../components/back";
 
-export default function User() {
+const UserScreen = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+  const [userImage, setUserImage] = useState(null);
+
+  // Função para manipular o envio dos dados do usuário
+  const handleUserSubmit = () => {
+    // Aqui você pode adicionar a lógica para enviar os dados do usuário para o servidor ou armazená-los localmente.
+    // Certifique-se de validar e tratar os dados adequadamente.
+
+    Alert.alert(
+      "Dados do usuário enviados",
+      `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nLocalização: ${location}`
+    );
+  };
+
+  // Função para carregar uma imagem do usuário (pode ser substituída pela funcionalidade de escolher imagens da galeria)
+  const handleImagePick = () => {
+    // Implemente a funcionalidade para carregar uma imagem do usuário aqui.
+    // Pode ser feita através de bibliotecas como react-native-image-picker ou react-native-camera.
+    // Neste exemplo, estamos apenas mostrando um alerta.
+    Alert.alert(
+      "Carregar imagem",
+      "Implemente a funcionalidade para carregar uma imagem do usuário."
+    );
+  };
+
   return (
-    <View style={Styles.container}>
-      <Text>aa</Text>
+    <View style={styles.container}>
+      <Back cor="#E86687" seta="#FFFFFF"/>
+      <View style={styles.backgroundImg}>
+        <TouchableOpacity style={styles.imagePicker} onPress={handleImagePick}>
+          <View style={styles.imageContainer}>
+            {userImage ? (
+              <Image source={{ uri: userImage }} style={styles.userImage} />
+            ) : (
+              <Text style={styles.imagePickerText}>
+                Selecionar Imagem do Usuário
+              </Text>
+            )}
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.card}>
+        <View style={styles.inputDiv}>
+          <Text style={styles.label}>Nome:</Text>
+          <TextInput
+            style={styles.input}
+            value={name}
+            onChangeText={(text) => setName(text)}
+          />
+        </View>
+
+        <View style={styles.inputDiv}>
+          <Text style={styles.label}>Email:</Text>
+          <TextInput
+            style={styles.input}
+            value={email}
+            onChangeText={(text) => setEmail(text)}
+          />
+        </View>
+
+        <View style={styles.inputDiv}>
+          <Text style={styles.label}>Telefone:</Text>
+          <TextInput
+            style={styles.input}
+            value={phone}
+            onChangeText={(text) => setPhone(text)}
+          />
+        </View>
+
+        <View style={styles.inputDiv}>
+          <Text style={styles.label}>Localização:</Text>
+          <TextInput
+            style={styles.input}
+            value={location}
+            onChangeText={(text) => setLocation(text)}
+          />
+        </View>
+      </View>
+
+      <Button title="Salvar" onPress={handleUserSubmit} />
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFF",
+  },
+
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
+  },
+
+  input: {
+    fontSize: 16,
+    height: 36,
+    borderColor: "#DDD", // Cor da borda
+    borderRadius: 10,
+    backgroundColor: "#D9D9D9",
+    marginBottom: 10,
+  },
+
+  imagePicker: {
+    alignItems: "center",
+    marginTop: 20,
+  },
+
+  imageContainer: {
+    backgroundColor: "#D4E8FF", // Cor de fundo para o contêiner da imagem
+    width: 160,
+    height: 160,
+    borderRadius: 100,
+    marginTop: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  userImage: {
+    width: 160,
+    height: 160,
+    borderRadius: 75,
+  },
+
+  imagePickerText: {
+    fontSize: 14,
+    color: "gray",
+    textDecorationLine: "underline",
+    textAlign: "center",
+  },
+
+  card: {
+    backgroundColor: "#D9FFE5",
+    width: 360,
+    height: 320,
+    borderRadius: 20,
+    marginBottom: 40,
+    marginTop: 100,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: '4%',
+  },
+
+  inputDiv: {
+    width: "90%",
+  },
+
+  backgroundImg: {
+    backgroundColor: "#E86687",
+    height: 161,
+    width: 400,
+  },
+});
+
+export default UserScreen;
