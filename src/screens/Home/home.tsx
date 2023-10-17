@@ -61,6 +61,7 @@ const Styles = StyleSheet.create({
 
   cardCarousel:{
     width: ITEM_WIDTH,
+    marginTop: "5%",
   },
 
   image: {
