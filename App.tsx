@@ -9,6 +9,7 @@ import {
 import Home from "./src/screens/Home/home";
 import Header from "./src/components/header";
 import Footer from "./src/components/footer";
+import React from "react";
 
 export default function App() {
   return (
