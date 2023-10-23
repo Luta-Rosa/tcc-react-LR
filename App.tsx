@@ -21,16 +21,17 @@ import Priv from "./src/screens/Privacidade/Priv";
 import Mente from "./src/screens/Saude-mental/Mente";
 import Settings from "./src/screens/Settings/Settings";
 import User from "./src/screens/User/User";
+import Chat from "./src/screens/Chat/chat";
 
 
 export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar />
-      {/* <Header /> */}
-      <ScrollView style={style.content}>
-        <Editar />
-      </ScrollView>
+      { <Header /> }
+      <View style={style.content}>
+        <Chat />
+      </View>
       {/* <Footer /> */}
     </SafeAreaView>
   );
