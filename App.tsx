@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import Header from "./src/components/header";
 import Footer from "./src/components/footer";
-
 import About from "./src/screens/About/About";
 import Cuidados from "./src/screens/Cuidados/Cuidados";
 import Editar from "./src/screens/Editar/Editar";
@@ -23,14 +22,13 @@ import Settings from "./src/screens/Settings/Settings";
 import User from "./src/screens/User/User";
 import Chat from "./src/screens/Chat/chat";
 
-
 export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar />
-      { <Header /> }
+      {/* { <Header /> } */}
       <View style={style.content}>
-        <Chat />
+        <About />
       </View>
       {/* <Footer /> */}
     </SafeAreaView>
