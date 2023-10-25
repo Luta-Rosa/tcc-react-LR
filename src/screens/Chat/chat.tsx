@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, TextInput, FlatList, TouchableOpacity, KeyboardAvoidingView, StyleSheet } from 'react-native';
 
+
 const ChatScreen = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
@@ -50,13 +51,15 @@ const styles = StyleSheet.create({
   messageContainer: {
     alignSelf: 'flex-end',
     margin: 5,
-    backgroundColor: '#E6A1C6',
+    backgroundColor: '#FFD4DF',
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 5,
+    marginRight: "5%",
+    marginTop: "5%",
   },
   messageText: {
-    color: 'white',
+    color: 'black',
   },
   inputContainer: {
     flexDirection: 'row',
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   sendButtonText: {
-    color: 'white',
+    color: 'black',
   },
 });
 
