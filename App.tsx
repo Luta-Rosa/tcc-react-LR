@@ -28,7 +28,7 @@ export default function App() {
       <StatusBar />
       {/* { <Header /> } */}
       <View style={style.content}>
-        <About />
+        <Chat />
       </View>
       {/* <Footer /> */}
     </SafeAreaView>

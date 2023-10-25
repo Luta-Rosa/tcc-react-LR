@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, TextInput, FlatList, TouchableOpacity, KeyboardAvoidingView, StyleSheet } from 'react-native';
-
+import Icon from 'react-native-vector-icons/FontAwesome'; // Importe o ícone de sua escolha
 
 const ChatScreen = () => {
   const [messages, setMessages] = useState([]);
@@ -10,14 +10,15 @@ const ChatScreen = () => {
   const sendMessage = () => {
     if (message.trim() === '') return;
 
-    setMessages([...messages, { text: message, id: messages.length }]);
+    setMessages([...messages, { text: message, id: messages.length, deletable: true }]);
     setMessage('');
-
-    // Role automaticamente para a nova mensagem
     flatListRef.current.scrollToEnd({ animated: true });
   };
 
-  
+  const deleteMessage = (messageId) => {
+    const updatedMessages = messages.filter((msg) => msg.id !== messageId);
+    setMessages(updatedMessages);
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -27,6 +28,14 @@ const ChatScreen = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.messageContainer}>
+            {item.deletable && (
+              <TouchableOpacity
+                onPress={() => deleteMessage(item.id)}
+                style={styles.deleteButton}
+              >
+                <Icon name="trash" size={20} color="red" />
+              </TouchableOpacity>
+            )}
             <Text style={styles.messageText}>{item.text}</Text>
           </View>
         )}
@@ -49,17 +58,24 @@ const ChatScreen = () => {
 
 const styles = StyleSheet.create({
   messageContainer: {
-    alignSelf: 'flex-end',
+    alignSelf: 'flex-start', // Alinhe a mensagem à esquerda
     margin: 5,
     backgroundColor: '#FFD4DF',
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    marginRight: "5%",
-    marginTop: "5%",
+    marginLeft: '5%', // Alinhe a margem à esquerda
+    marginTop: '5%',
+    position: 'relative',
   },
   messageText: {
     color: 'black',
+  },
+  deleteButton: {
+    position: 'absolute',
+    left: 1, // Posicione o ícone da lixeira à esquerda
+    top: 1,
+    zIndex: 1,
   },
   inputContainer: {
     flexDirection: 'row',
@@ -67,7 +83,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderTopWidth: 1,
     borderTopColor: '#ccc',
-    bottom: 0
+    bottom: 0,
   },
   input: {
     flex: 1,
