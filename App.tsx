@@ -22,6 +22,7 @@ import Settings from "./src/screens/Settings/Settings";
 import User from "./src/screens/User/User";
 import Chat from "./src/screens/Chat/chat";
 import Cadastro from './src/screens/Cadastro/Cadastro';
+import UserLogin from "./src/screens/Login/login";
 
 export default function App() {
   return (
@@ -29,7 +30,7 @@ export default function App() {
       <StatusBar />
       {/* { <Header /> } */}
       <View style={style.content}>
-        <Cadastro/>
+        <UserLogin/>
       </View>
       {/* <Footer /> */}
     </SafeAreaView>
