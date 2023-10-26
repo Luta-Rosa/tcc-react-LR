@@ -1,46 +1,61 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, TextInput, FlatList, TouchableOpacity, KeyboardAvoidingView, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Importe o ícone de sua escolha
+import { FontAwesome5 } from '@expo/vector-icons'; // Importe do ícone de lixeira
+import Emoji from 'react-native-emoji'; // importe dos emojis
+import EmojiSelector from 'react-native-emoji-selector'; // Importe do seletor de emojis
 
 const ChatScreen = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const flatListRef = useRef(null);
+  const [isEmojiSelectorVisible, setEmojiSelectorVisible] = useState(false); // Estado para controlar a visibilidade do seletor de emojis
 
   const sendMessage = () => {
     if (message.trim() === '') return;
 
-    setMessages([...messages, { text: message, id: messages.length, deletable: true }]);
+    const newMessage = { text: message, id: messages.length + 1, isUser: true };
+    setMessages([...messages, newMessage]);
     setMessage('');
+
+    // rolar automaticamente para a nova mensagem
     flatListRef.current.scrollToEnd({ animated: true });
   };
 
-  const deleteMessage = (messageId) => {
-    const updatedMessages = messages.filter((msg) => msg.id !== messageId);
+  // apagar as mensagens
+  const deleteMessage = (id) => {
+    const updatedMessages = messages.filter((message) => message.id !== id);
     setMessages(updatedMessages);
   };
 
+  // Função para adicionar um emoji à mensagem
+  const addEmojiToMessage = (emoji) => {
+    setMessage(message + emoji);
+    setEmojiSelectorVisible(false);
+  };
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Mulheres Conectadas</Text>
+      </View>
       <FlatList
         ref={flatListRef}
         data={messages}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.messageContainer}>
-            {item.deletable && (
-              <TouchableOpacity
-                onPress={() => deleteMessage(item.id)}
-                style={styles.deleteButton}
-              >
-                <Icon name="trash" size={20} color="red" />
+            <Text style={styles.messageText}>
+            
+              {item.text}
+            </Text>
+            {item.isUser && (
+              <TouchableOpacity onPress={() => deleteMessage(item.id)}>
+                <FontAwesome5 name="trash-alt" size={20} color="black" />{/* Ícone de lixeira */}
               </TouchableOpacity>
             )}
-            <Text style={styles.messageText}>{item.text}</Text>
           </View>
         )}
       />
-     
       <View style={styles.inputContainer}>
         <TextInput
           value={message}
@@ -48,42 +63,55 @@ const ChatScreen = () => {
           placeholder="Digite sua mensagem"
           style={styles.input}
         />
+        <TouchableOpacity onPress={() => setEmojiSelectorVisible(true)} style={styles.emojiButton}>
+          <FontAwesome5 name="smile" size={20} color="black" />{/* Ícone de emoji */}
+        </TouchableOpacity>
         <TouchableOpacity onPress={sendMessage} style={styles.sendButton}>
           <Text style={styles.sendButtonText}>Enviar</Text>
         </TouchableOpacity>
       </View>
+      {isEmojiSelectorVisible && (
+        <EmojiSelector onEmojiSelected={addEmojiToMessage} />
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  messageContainer: {
-    alignSelf: 'flex-start', // Alinhe a mensagem à esquerda
-    margin: 5,
-    backgroundColor: '#FFD4DF',
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginLeft: '5%', // Alinhe a margem à esquerda
-    marginTop: '5%',
-    position: 'relative',
+  container: {
+    flex: 1,
+    justifyContent: 'flex-end',
   },
-  messageText: {
+  header: {
+    backgroundColor: 'pink',
+    padding: 15,
+    alignItems: 'center',
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
     color: 'black',
   },
-  deleteButton: {
-    position: 'absolute',
-    left: 1, // Posicione o ícone da lixeira à esquerda
-    top: 1,
-    zIndex: 1,
+  messageContainer: {
+    alignSelf: 'flex-end',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 5,
+    marginHorizontal: 10,
+  },
+  messageText: {
+    backgroundColor: 'pink',
+    color: 'black',
+    padding: 10,
+    borderRadius: 10,
+    marginRight: 10,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 10,
     borderTopWidth: 1,
     borderTopColor: '#ccc',
-    bottom: 0,
+    padding: 10,
   },
   input: {
     flex: 1,
@@ -96,12 +124,18 @@ const styles = StyleSheet.create({
   },
   sendButton: {
     marginLeft: 10,
-    padding: 10,
-    backgroundColor: '#E6A1C6',
+    backgroundColor: 'pink',
     borderRadius: 20,
+    padding: 10,
   },
   sendButtonText: {
     color: 'black',
+  },
+  emojiButton: {
+    marginLeft: 10,
+  },
+  emoji: {
+    fontSize: 30,
   },
 });
 

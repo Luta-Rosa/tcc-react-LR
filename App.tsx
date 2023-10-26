@@ -21,6 +21,7 @@ import Mente from "./src/screens/Saude-mental/Mente";
 import Settings from "./src/screens/Settings/Settings";
 import User from "./src/screens/User/User";
 import Chat from "./src/screens/Chat/chat";
+import Cadastro from './src/screens/Cadastro/Cadastro';
 
 export default function App() {
   return (
@@ -28,7 +29,7 @@ export default function App() {
       <StatusBar />
       {/* { <Header /> } */}
       <View style={style.content}>
-        <Chat />
+        <Cadastro />
       </View>
       {/* <Footer /> */}
     </SafeAreaView>
