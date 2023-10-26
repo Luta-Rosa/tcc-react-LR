@@ -1,33 +1,49 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons'; // Importe o ícone FontAwesome5
+import { FontAwesome5 } from '@expo/vector-icons';
+
+const Header = () => (
+  <View style={styles.header}>
+    <Text style={styles.title}>Luta Rosa</Text>
+    <Text style={styles.subtitle}>Juntas pela vida</Text>
+  </View>
+);
 
 const UserRegistration = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [city, setCity] = useState('');
   const [password, setPassword] = useState('');
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false); // Estado para controlar a visibilidade da senha
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
+  const toggleConfirmPasswordVisibility = () => {
+    setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
+  };
+
   const handleRegistration = () => {
-   
+    // Implemente a lógica para processar o cadastro do usuário aqui
+    // Por exemplo, você pode fazer uma solicitação para um servidor ou armazenar os dados localmente.
+
     // Limpe os campos após o registro
     setName('');
     setEmail('');
     setCity('');
     setPassword('');
+    setConfirmPassword('');
 
-    // mostrar uma mensagem de sucesso ou redirecione o usuário para outra tela
+    // Exiba uma mensagem de sucesso ou redirecione o usuário para outra tela
   };
 
   return (
     <View style={styles.container}>
+      <Header />
       <View style={styles.card}>
-        <Text style={styles.title}>Cadastro de Usuário</Text>
         <TextInput
           placeholder="Nome de Usuário"
           value={name}
@@ -49,27 +65,49 @@ const UserRegistration = () => {
         <View style={styles.passwordContainer}>
           <TextInput
             placeholder="Senha"
-            secureTextEntry={!isPasswordVisible} // Alterne a visibilidade da senha
+            secureTextEntry={!isPasswordVisible}
             value={password}
             onChangeText={text => setPassword(text)}
             style={styles.passwordInput}
           />
-          
           <TouchableOpacity
             onPress={togglePasswordVisibility}
             style={styles.eyeIcon}
           >
             <FontAwesome5
-              name={isPasswordVisible ? 'eye-slash' : 'eye'} // Alterne o ícone do olho
+              name={isPasswordVisible ? 'eye-slash' : 'eye'}
               size={20}
               color="#888"
             />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={handleRegistration} style={styles.button}>
+        <View style={styles.passwordContainer}>
+          <TextInput
+            placeholder="Confirmar Senha"
+            secureTextEntry={!isConfirmPasswordVisible}
+            value={confirmPassword}
+            onChangeText={text => setConfirmPassword(text)}
+            style={styles.passwordInput}
+          />
+          <TouchableOpacity
+            onPress={toggleConfirmPasswordVisibility}
+            style={styles.eyeIcon}
+          >
+            <FontAwesome5
+              name={isConfirmPasswordVisible ? 'eye-slash' : 'eye'}
+              size={20}
+              color="#888"
+            />
+          </TouchableOpacity>
+        </View>
+
+      </View>
+      <TouchableOpacity onPress={handleRegistration} style={styles.button}>
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
-      </View>
+        <TouchableOpacity onPress={handleRegistration} style={styles.button}>
+          <Text style={styles.buttonText}>Fazer Login</Text>
+        </TouchableOpacity>
     </View>
   );
 };
@@ -79,6 +117,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:'#E86687'
+  },
+  header: {
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 24,
+    textAlign: 'center',
+    color:'white'
+  },
+  subtitle: {
+    fontSize: 16,
+    textAlign: 'center',
+    color: 'white',
   },
   card: {
     backgroundColor: 'white',
@@ -95,10 +147,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
   },
   input: {
     height: 40,
@@ -133,6 +181,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     textAlign: 'center',
+    fontSize:17
   },
 });
 

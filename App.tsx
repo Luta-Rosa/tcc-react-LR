@@ -29,7 +29,7 @@ export default function App() {
       <StatusBar />
       {/* { <Header /> } */}
       <View style={style.content}>
-        <Cadastro />
+        <Cadastro/>
       </View>
       {/* <Footer /> */}
     </SafeAreaView>
