@@ -28,11 +28,11 @@ export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar />
-      {/* { <Header /> } */}
+      { <Header /> }
       <View style={style.content}>
-        <UserLogin/>
+        <Home/>
       </View>
-      {/* <Footer /> */}
+      {<Footer />}
     </SafeAreaView>
   );
 }
