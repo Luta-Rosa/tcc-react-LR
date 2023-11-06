@@ -11,24 +11,18 @@ function SettingsScreen() {
     <View style={styles.container}>
       <SettingsCard title="Central de Contas" icon="user" children={undefined} />
       <SettingsCard title="Privacidade" icon="lock" children={undefined} />
+      <SettingsCard title="Notificações" icon="bell">  
+      </SettingsCard>
       <SettingsCard title="Tema" icon="palette">
         <View style={styles.settingItem}>
-          <Text>Tema Escuro</Text>
+        <Text>Tema Escuro</Text>
           <Switch
             value={theme === 'dark'}
             onValueChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           />
         </View>
       </SettingsCard>
-      <SettingsCard title="Notificações" icon="bell">
-        <View style={styles.settingItem}>
-          <Text>Ativar Notificações</Text>
-          <Switch
-            value={notificationsEnabled}
-            onValueChange={(value) => setNotificationsEnabled(value)}
-          />
-        </View>
-      </SettingsCard>
+
   
      
     </View>

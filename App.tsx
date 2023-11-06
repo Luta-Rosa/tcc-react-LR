@@ -30,7 +30,7 @@ export default function App() {
       <StatusBar />
       { /*<Header /> */}
       <View style={style.content}>
-        <Guia/>
+        <Notificacao/>
       </View>
       { /*<Footer />*/}
     </SafeAreaView>
