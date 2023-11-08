@@ -1,35 +1,32 @@
-import React, { useState } from 'react';
-import { View, Text, Switch, StyleSheet } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from "react";
+import { View, Text, Switch, StyleSheet } from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 function SettingsScreen() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-  const [theme, setTheme] = useState('light');
-
+  const [theme, setTheme] = useState("light");
 
   return (
     <View style={styles.container}>
-      <SettingsCard title="Central de Contas" icon="user" children={undefined} />
+        <Text style={styles.cardTitle}>Notificações</Text>
+      <SettingsCard
+        title="Central de Contas"
+        icon="user"
+        children={undefined}
+      />
       <SettingsCard title="Privacidade" icon="lock" children={undefined} />
-      <SettingsCard title="Notificações" icon="bell">  
-      </SettingsCard>
+      <SettingsCard title="Notificações" icon="bell" children={undefined}></SettingsCard>
       <SettingsCard title="Tema" icon="palette">
         <View style={styles.settingItem}>
-        <Text>Tema Escuro</Text>
+          <Text>Tema Escuro</Text>
           <Switch
-            value={theme === 'dark'}
-            onValueChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            value={theme === "dark"}
+            onValueChange={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
         </View>
       </SettingsCard>
-
-  
-     
     </View>
-      
-     
   );
-
 }
 
 function SettingsCard({ title, icon, children }) {
@@ -48,14 +45,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: 'center'
+    justifyContent: "center",
   },
   card: {
-    backgroundColor: '#D9FFE5', // Cor de fundo 
+    backgroundColor: "#D9FFE5", // Cor de fundo
     borderRadius: 10,
     padding: 20,
     marginBottom: 20,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -65,20 +62,20 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   cardHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   icon: {
     marginRight: 10,
   },
   cardTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   settingItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 10,
   },
 });

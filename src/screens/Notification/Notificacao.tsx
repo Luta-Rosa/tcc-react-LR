@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { View, Text, Switch, StyleSheet } from "react-native";
 
@@ -8,19 +9,19 @@ function NotificationSettingsScreen() {
   const [vibration, setVibration] = useState(true);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: 10 }]}>
       <Text style={styles.cardTitle}>Notificações</Text>
       <View style={styles.centeredContent}>
         <NotificationCard title="Notificações Gerais">
           <View style={styles.settingItem}>
-            <Text>Lembrete sobre auto-toque</Text>
+            <Text style={{ fontSize: 16 }}>Lembrete sobre auto-toque</Text>
             <Switch
               value={autoTouchReminder}
               onValueChange={setAutoTouchReminder}
             />
           </View>
           <View style={styles.settingItem}>
-            <Text>Notificações mensais</Text>
+            <Text style={{ fontSize: 16 }}>Notificações mensais</Text>
             <Switch
               value={monthlyNotification}
               onValueChange={setMonthlyNotification}
@@ -30,11 +31,12 @@ function NotificationSettingsScreen() {
 
         <NotificationCard title="Notificações do Chat">
           <View style={styles.settingItem}>
-            <Text>Sons de conversas</Text>
+            <Text style={{ fontSize: 16 }}>Sons de conversas</Text>
             <Switch value={chatSounds} onValueChange={setChatSounds} />
           </View>
+
           <View style={styles.settingItem}>
-            <Text>Vibração</Text>
+            <Text style={{ fontSize: 16 }}>Vibração</Text>
             <Switch value={vibration} onValueChange={setVibration} />
           </View>
         </NotificationCard>
