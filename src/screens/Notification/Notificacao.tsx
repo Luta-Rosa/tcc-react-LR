@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, Switch, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, Switch, StyleSheet } from "react-native";
 
 function NotificationSettingsScreen() {
   const [autoTouchReminder, setAutoTouchReminder] = useState(false);
@@ -9,20 +9,22 @@ function NotificationSettingsScreen() {
 
   return (
     <View style={styles.container}>
-    <Text style={styles.cardTitle}>Notificações</Text> 
+      <Text style={styles.cardTitle}>Notificações</Text>
       <View style={styles.centeredContent}>
         <NotificationCard title="Notificações Gerais">
           <View style={styles.settingItem}>
             <Text>Lembrete sobre auto-toque</Text>
             <Switch
-
-             value={autoTouchReminder} onValueChange={setAutoTouchReminder} 
-             
-             />
+              value={autoTouchReminder}
+              onValueChange={setAutoTouchReminder}
+            />
           </View>
           <View style={styles.settingItem}>
             <Text>Notificações mensais</Text>
-            <Switch value={monthlyNotification} onValueChange={setMonthlyNotification} />
+            <Switch
+              value={monthlyNotification}
+              onValueChange={setMonthlyNotification}
+            />
           </View>
         </NotificationCard>
 
@@ -57,14 +59,14 @@ const styles = StyleSheet.create({
   },
   centeredContent: {
     flex: 1,
-    justifyContent: 'center', // Centraliza verticalmente
+    justifyContent: "center", // Centraliza verticalmente
   },
   card: {
-    backgroundColor: '#FFD4DF', // Cor do card
+    backgroundColor: "#FFD4DF", // Cor do card
     borderRadius: 10,
-    padding: 20,
+    padding: 15,
     marginBottom: 20,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -75,12 +77,12 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   settingItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 10,
   },
 });

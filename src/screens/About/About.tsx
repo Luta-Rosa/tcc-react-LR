@@ -1,92 +1,78 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
-import Back from "../../components/back";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { devs } from "./mocks";
 
-const NossoProjeto: React.FC = () => {
-  const desenvolvedoras = [
-    {
-      nome: "Ana Clara",
-      imagem: require("../../../assets/desenvolvedoras/ana.png"),
-    },
-    {
-      nome: "Ariane Rodokas",
-      imagem: require("../../../assets/desenvolvedoras/ariane.png"),
-    },
-
-    {
-      nome: "Gabriela Silva",
-      imagem: require("../../../assets/desenvolvedoras/gabie.png"),
-    },
-  ];
-
+const About: React.FC = () => {
   return (
-    <>
-      <Back cor="white" seta="black" />
-
-      <View style={styles.descricao}>
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Sobre</Text>
+      <View style={styles.card}>
         <Text style={styles.texto}>
           "Luta Rosa - Juntas Pela Vida" é um projeto que visa conscientizar as
           mulheres sobre a importância da detecção precoce do câncer de mama e
-          colo de útero.
+          colo de útero.{" "}
         </Text>
       </View>
 
-      <ScrollView>
-        {desenvolvedoras.map((desenvolvedora, index) => (
-          <View
-            key={index}
-            style={[styles.card, { backgroundColor: "#D4E8FF" }]}
-          >
-            <Image source={desenvolvedora.imagem} style={styles.imagem} />
-            <Text style={styles.nome}>{desenvolvedora.nome}</Text>
-          </View>
-        ))}
-      </ScrollView>
-    </>
+      {devs.map((dev) => (
+        <View key={dev.id} style={styles.devs}>
+          <Image source={dev.url} style={styles.imagem} />
+          <Text style={styles.nome}>{dev.name}</Text>
+        </View>
+      ))}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
   },
-
   card: {
-    flexDirection: "row",
-    marginLeft: 10,
-    padding: 10,
-    marginTop: "5%",
-    marginBottom: "5%",
-  },
-
-  imagem: {
-    width: 85,
-    height: 85,
-  },
-  nome: {
-    fontSize: 16,
+    width: 350,
+    height: 130,
+    backgroundColor: "#FFD4DF",
+    borderRadius: 10,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 1, height: 3 },
+    shadowRadius: 2,
+    elevation: 5,
     marginTop: 10,
-    marginLeft: "2%",
-   
   },
   texto: {
-    fontSize: 18,
-    paddingHorizontal: 10,
-    paddingVertical: 15,
+    fontSize: 16,
+    color: "black",
+    alignSelf: "center",
     textAlign: "justify",
   },
-
-  descricao: {
-    backgroundColor: "#FFD4DF",
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginLeft: "5%",
-    marginRight: "5%",
+  titulo: {
+    fontSize: 17,
+    fontWeight: "bold",
   },
-
-  // desenvolvedoraContainer: {
-
-  // },
+  devs: {
+    width: 350,
+    height: 80,
+    display: "flex",
+    backgroundColor: "#D4E8FF",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 1, height: 3 },
+    shadowRadius: 2,
+    elevation: 5,
+    marginTop: 20,
+  },
+  imagem: {
+    width: 65,
+    height: 80,
+  },
+  nome: {
+    marginHorizontal: 80,
+    marginVertical: -47,
+    fontSize: 16,
+  },
 });
 
-export default NossoProjeto;
+export default About;
