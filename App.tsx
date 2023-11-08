@@ -7,28 +7,28 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import Header from "./src/components/header";
-import Footer from "./src/components/footer";
-import About from "./src/screens/About/About";
-import Cuidados from "./src/screens/Cuidados/Cuidados";
-import Editar from "./src/screens/Editar/Editar";
-import Guia from "./src/screens/Guia/Guia";
-import Home from "./src/screens/Home/home";
-import Notificacao from "./src/screens/Notification/Notificacao";
-import Open from "./src/screens/Open/Open";
-import Priv from "./src/screens/Privacidade/Priv";
-import Mente from "./src/screens/Saude-mental/Mente";
-import Settings from "./src/screens/Settings/Settings";
-import User from "./src/screens/User/User";
-import Chat from "./src/screens/Chat/chat";
-import Cadastro from './src/screens/Cadastro/Cadastro';
-import UserLogin from "./src/screens/Login/login";
+import Header from "./src/components/header"; //feita
+import Footer from "./src/components/footer"; //feita
+import About from "./src/screens/About/About"; //feita
+import Editar from "./src/screens/Editar/Editar"; //feita
+import Notificacao from "./src/screens/Notification/Notificacao"; //feita
+import Priv from "./src/screens/Privacidade/Priv"; //feita
+import Settings from "./src/screens/Settings/Settings"; //feita
+import User from "./src/screens/User/User"; //feita
+import Chat from "./src/screens/Chat/chat"; //feita
+import Cadastro from './src/screens/Cadastro/Cadastro'; //feita
+import UserLogin from "./src/screens/Login/login"; //feita
+import Home from "./src/screens/Home/home"; //ARI E GABI
+import Open from "./src/screens/Open/Open"; //ANA
+import Guia from "./src/screens/Guia/Guia"; //ANA
+import Cuidados from "./src/screens/Cuidados/Cuidados"; //todas
+import Mente from "./src/screens/Saude-mental/Mente"; //todas
 
 export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar />
-    <Header /> 
+    {/* <Header />  */}
       <View style={style.content}>
         <Home/>
       </View>

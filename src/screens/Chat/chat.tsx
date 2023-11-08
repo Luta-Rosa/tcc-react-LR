@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   header: {
-    backgroundColor: 'pink',
+    backgroundColor: '#F59CB7',
     padding: 15,
     alignItems: 'center',
   },
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   messageText: {
-    backgroundColor: 'pink',
+    backgroundColor: '#FFD4DF',
     color: 'black',
     padding: 10,
     borderRadius: 10,
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   },
   sendButton: {
     marginLeft: 10,
-    backgroundColor: 'pink',
+    backgroundColor: '#F59CB7',
     borderRadius: 20,
     padding: 10,
   },
