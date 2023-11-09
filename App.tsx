@@ -21,18 +21,18 @@ import UserLogin from "./src/screens/Login/login"; //feita
 import Home from "./src/screens/Home/home"; //ARI E GABI
 import Open from "./src/screens/Open/Open"; //feita (tentar mudar a fonte)
 import Guia from "./src/screens/Guia/Guia"; //ANA
-import Cuidados from "./src/screens/Cuidados/Cuidados"; //todas
-import Mente from "./src/screens/Saude-mental/Mente"; //todas
+import Cuidados from "./src/screens/Cuidados/Cuidados"; //ari
+import Mente from "./src/screens/Saude-mental/Mente"; //ari
 
 export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar />
-    {/* <Header />  */}
+    <Header /> 
       <View style={style.content}>
-        <Guia/>
+        <Mente/>
       </View>
-      {/* <Footer /> */}
+      <Footer />
     </SafeAreaView>
   );
 }
