@@ -9,6 +9,9 @@ const Mente: React.FC = () => {
         style={styles.image}
       />
       <View style={styles.card}>
+        <Image
+         source={require("../../../assets/sliders/medita.png")}
+         style={styles.image}/>
         <Text style={styles.title}>O poder da meditação</Text>
       </View>
     </View>

@@ -16,17 +16,17 @@ type Props = {
 const carouselItems = [
   {
     imgUrl: 
-    "https://images8.alphacoders.com/594/thumb-1920-594870.jpg"
+    "../../../assets/sliders/foto1.png"
   },
 
   {
     imgUrl: 
-    "https://i.pinimg.com/originals/2e/2a/60/2e2a605ab3c772b33c1c53734bd33891.jpg"
+    "../../../assets/sliders/foto2.png"
   },
 
   {
     imgUrl:
-    "https://img.freepik.com/fotos-gratis/closeup-textural-flores-exoticas-brilhantes-generativas-al_169016-28576.jpg"
+    "../../../assets/sliders/foto3.png"
   },
 ]
 
