@@ -4,8 +4,8 @@ import {
   Text,
   View,
   SafeAreaView,
-  ScrollView,
   StatusBar,
+  ScrollView,
 } from "react-native";
 import Header from "./src/components/header"; //feita
 import Footer from "./src/components/footer"; //feita
@@ -16,7 +16,7 @@ import Priv from "./src/screens/Privacidade/Priv"; //feita
 import Settings from "./src/screens/Settings/Settings"; //feita
 import User from "./src/screens/User/User"; //feita
 import Chat from "./src/screens/Chat/chat"; //feita
-import Cadastro from './src/screens/Cadastro/Cadastro'; //feita
+import Cadastro from "./src/screens/Cadastro/Cadastro"; //feita
 import UserLogin from "./src/screens/Login/login"; //feita
 import Home from "./src/screens/Home/home"; //ARI E GABI
 import Open from "./src/screens/Open/Open"; //feita (tentar mudar a fonte)
@@ -28,10 +28,10 @@ export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar />
-    <Header /> 
-      <View style={style.content}>
-        <Mente/>
-      </View>
+      <Header />
+      <ScrollView>
+        <Mente />
+      </ScrollView>
       <Footer />
     </SafeAreaView>
   );
