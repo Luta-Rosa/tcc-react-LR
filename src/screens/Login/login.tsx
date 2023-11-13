@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 
 const Header = () => (
   <View style={styles.header}>
@@ -15,26 +16,24 @@ const Header = () => (
   </View>
 );
 
-const UserLogin = () => {
+const UserLogin = ({ navigation }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
   const handleLogin = () => {
-    // Implemente a lógica para processar o cadastro do usuário aqui
-    // Por exemplo, você pode fazer uma solicitação para um servidor ou armazenar os dados localmente.
-
-    // Limpe os campos após o registro
+ 
     setName("");
     setEmail("");
     setPassword("");
 
-    // Exiba uma mensagem de sucesso ou redirecione o usuário para outra tela
+    navigation.navigate('Home');
+
+   
   };
 
   return (

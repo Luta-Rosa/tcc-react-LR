@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { Picker } from '@react-native-picker/picker';
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 
 const Header = () => (
   <View style={styles.header}>
@@ -9,10 +11,10 @@ const Header = () => (
   </View>
 );
 
-const UserRegistration = () => {
+const UserRegistration = ({ navigation }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [city, setCity] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -30,14 +32,17 @@ const UserRegistration = () => {
     // Implemente a lógica para processar o cadastro do usuário aqui
     // Por exemplo, você pode fazer uma solicitação para um servidor ou armazenar os dados localmente.
 
+    console.log('Cidade selecionada:', selectedCity);
+
     // Limpe os campos após o registro
     setName('');
     setEmail('');
-    setCity('');
+    setSelectedCity('');
     setPassword('');
     setConfirmPassword('');
 
     // Exiba uma mensagem de sucesso ou redirecione o usuário para outra tela
+    navigation.navigate('Login');
   };
 
   return (
@@ -56,12 +61,7 @@ const UserRegistration = () => {
           onChangeText={text => setEmail(text)}
           style={styles.input}
         />
-        <TextInput
-          placeholder="Cidade"
-          value={city}
-          onChangeText={text => setCity(text)}
-          style={styles.input}
-        />
+      
         <View style={styles.passwordContainer}>
           <TextInput
             placeholder="Senha"
@@ -100,13 +100,23 @@ const UserRegistration = () => {
             />
           </TouchableOpacity>
         </View>
-
+        <Picker
+          selectedValue={selectedCity}
+          onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
+          style={styles.input}
+        >
+          <Picker.Item label="Selecione a Cidade" value="" />
+          <Picker.Item label="Lençóis Paulista" value="Lençóis Paulista" />
+          <Picker.Item label="Bauru" value="Bauru" />
+          <Picker.Item label="Jaú" value="Jaú" />
+    
+        </Picker>
       </View>
       <TouchableOpacity onPress={handleRegistration} style={styles.button}>
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleRegistration} style={styles.button}>
-          <Text style={styles.buttonText}>Fazer Login</Text>
+          <Text style={styles.buttonText}>Já tenho conta</Text>
         </TouchableOpacity>
     </View>
   );
@@ -117,7 +127,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#E86687'
+    backgroundColor: '#E86687',
   },
   header: {
     marginBottom: 20,
@@ -125,7 +135,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     textAlign: 'center',
-    color:'white'
+    color: 'white',
   },
   subtitle: {
     fontSize: 16,
