@@ -5,16 +5,14 @@ import Carousel from "react-native-snap-carousel";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 import foto1 from '../../../assets/sliders/foto1.png'
-
 import foto2 from '../../../assets/sliders/foto2.png'
-
 import foto3 from '../../../assets/sliders/foto3.png'
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 
-
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = SLIDER_WIDTH * 0.8;
+const CARD_HEIGHT = 200; // Ajuste a altura desejada
 
 type Props = {
   item: {
@@ -24,29 +22,19 @@ type Props = {
 }
 
 const carouselItems = [
-  {
-    imgUrl: foto1
-  },
-
-  {
-    imgUrl: foto2
-    
-  },
-
-  {
-    imgUrl: foto3
-    
-  },
-]
+  { imgUrl: foto1 },
+  { imgUrl: foto2 },
+  { imgUrl: foto3 },
+];
 
 function CarouselCardItem({ item, index }: Props) {
   return (
     <View style={styles.cardContainer} key={index}>
       <View style={styles.card}>
-        <Image style={styles.image} source={ item.imgUrl } />
+        <Image style={styles.image} source={item.imgUrl} />
       </View>
     </View>
-  )
+  );
 }
 
 export default function Home() {
@@ -62,22 +50,18 @@ export default function Home() {
           useScrollView={true}
           layout="default"
         />
-        <View style={styles.containerBu}>
-          <TouchableOpacity style={styles.button} onPress={() => {
-            // Adicione o código que deseja executar quando o botão é pressionado
-          }}>
-            <Text style={styles.buttonText}>Cuide-se</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.containerBu}>
-          <TouchableOpacity style={styles.button} onPress={() => {
-            // Adicione o código que deseja executar quando o botão é pressionado
-          }}>
-            <Text style={styles.buttonText}>Saúde Mental</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.button} onPress={() => {
+          // Adicione o código que deseja executar quando o botão "Cuide-se" é pressionado
+        }}>
+          <Text style={styles.buttonText}>Cuide-se</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => {
+          // Adicione o código que deseja executar quando o botão "Saúde Mental" é pressionado
+        }}>
+          <Text style={styles.buttonText}>Saúde Mental</Text>
+        </TouchableOpacity>
       </ScrollView>
-    <Footer />
+      <Footer />
     </View>
   );
 }
@@ -87,15 +71,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-
   cardContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 10,
   },
-
   card: {
     width: ITEM_WIDTH,
-    height: 200,  // Altura ajustada para 200 pixels
+    height: CARD_HEIGHT,
     borderRadius: 10,
     overflow: 'hidden',
     elevation: 3,
@@ -109,35 +92,35 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
   },
-
+  cardText: {
+    fontSize: 18,
+    color: '#2B4A6D',
+  },
   image: {
+    width: '100%',
+    height: '100%',
     borderRadius: 8,
   },
-  
-  containerBu: {
-    flex: 1,
+  button: {
+    width: ITEM_WIDTH,
+    borderRadius: 10,
+    overflow: 'hidden',
+    elevation: 3,
+    backgroundColor: '#D4E8FF',
+    marginVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 10,
   },
-  
-  button: {
-    backgroundColor: '#D4E8FF', // Cor de fundo
-    padding: 10,
-    borderRadius: 10, // Borda arredondada
-  },
-
   buttonText: {
-    color: '#2B4A6D', // Cor do texto
     fontSize: 18,
-  },
-
-  footer: {
-    backgroundColor: "#E86687",
-    height: 75,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    paddingHorizontal: 24,
+    color: '#2B4A6D',
   },
 });
