@@ -100,7 +100,7 @@ const UserScreen = () => {
         </View>
       </View>
 
-      {/* PRECISA ESTILIZAR O BOTAO */}
+      {}
       <Button title="Salvar" onPress={handleUserSubmit} />
 
     </View>

@@ -8,17 +8,19 @@ function GuiaDeUsoPage() {
         <Text style={styles.cardTitle}>Navegação na Página Inicial:</Text>
       </View>
 
+
+     
       <InformationText
-        title="Procure uma rede de Apoio"
+        title="Procure uma rede de Apoio:"
         description="Converse com outros usuários e compartilhe suas experiências."
       />
       <InformationText
-        title="Informações sobre Câncer de Mama e de Colo de Útero"
-        description="Acesse artigos, vídeos e informações atualizadas sobre câncer de mama."
+        title="Informações sobre Câncer de Mama e de Colo de Útero:"
+        description="Acesse artigos, vídeos e informações atualizadas sobre câncer de mama e de colo de útero"
       />
       
       <InformationText
-        title="Calendário de Exames"
+        title="Calendário de Exames:"
         description="Mantenha um registro de suas datas de exames e lembretes."
       />
       

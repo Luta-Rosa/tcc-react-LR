@@ -2,8 +2,6 @@ import React from "react";
 import { View, Text, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native';
 import Carousel from "react-native-snap-carousel";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
 import foto1 from '../../../assets/sliders/foto1.png'
 import foto2 from '../../../assets/sliders/foto2.png'
 import foto3 from '../../../assets/sliders/foto3.png'
@@ -12,8 +10,11 @@ import Header from "../../components/header";
 
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = SLIDER_WIDTH * 0.8;
-const CARD_HEIGHT = 200; // Ajuste a altura desejada
-
+const CARD_HEIGHT = 176; // Ajuste a altura desejada
+const BUTTON_WIDTH = ITEM_WIDTH * 0.9; // Ajuste a largura desejada
+const BUTTON_HEIGHT = 60; // Ajuste a altura desejada
+const BUTTON_TEXT_SIZE = 19; // Ajuste o tamanho do texto conforme desejado
+const BUTTON_MARGIN_BOTTOM = 45;
 type Props = {
   item: {
     imgUrl: string
@@ -37,32 +38,40 @@ function CarouselCardItem({ item, index }: Props) {
   );
 }
 
+
+
 export default function Home() {
+
+ 
+
+ 
+
   return (
     <View style={styles.container}>
-      <Header />
-      <ScrollView>
-        <Carousel
-          data={carouselItems}
-          renderItem={CarouselCardItem}
-          sliderWidth={SLIDER_WIDTH}
-          itemWidth={ITEM_WIDTH}
-          useScrollView={true}
-          layout="default"
-        />
-        <TouchableOpacity style={styles.button} onPress={() => {
-          // Adicione o código que deseja executar quando o botão "Cuide-se" é pressionado
-        }}>
-          <Text style={styles.buttonText}>Cuide-se</Text>
+    <Header />
+    <ScrollView>
+      <Carousel
+        data={carouselItems}
+        renderItem={CarouselCardItem}
+        sliderWidth={SLIDER_WIDTH}
+        itemWidth={ITEM_WIDTH}
+        useScrollView={true}
+        layout="default"
+      />
+      <View style={styles.centeredContainer}>
+        <TouchableOpacity style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]} onPress={function () {
+          }}>
+          <Text style={styles.buttonText}>Cuidados</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => {
-          // Adicione o código que deseja executar quando o botão "Saúde Mental" é pressionado
+        <TouchableOpacity style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]} onPress={() => {
+        
         }}>
           <Text style={styles.buttonText}>Saúde Mental</Text>
         </TouchableOpacity>
-      </ScrollView>
-      <Footer />
-    </View>
+      </View>
+    </ScrollView>
+    <Footer />
+  </View>
   );
 }
 
@@ -101,8 +110,15 @@ const styles = StyleSheet.create({
     height: '100%',
     borderRadius: 8,
   },
+  centeredContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 60, // Ajuste o valor conforme necessário para posicionar os botões no centro
+  },
   button: {
-    width: ITEM_WIDTH,
+    width: BUTTON_WIDTH,
+    height: BUTTON_HEIGHT,
     borderRadius: 10,
     overflow: 'hidden',
     elevation: 3,
@@ -115,12 +131,12 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    padding: 20,
+    padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: BUTTON_TEXT_SIZE,
     color: '#2B4A6D',
   },
 });
