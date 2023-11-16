@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { router } from '../(tabs)';
 
 const Header = () => (
   <View style={styles.header}>
@@ -11,7 +12,7 @@ const Header = () => (
   </View>
 );
 
-const UserRegistration = ({ navigation }) => {
+const UserRegistration = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
@@ -42,7 +43,7 @@ const UserRegistration = ({ navigation }) => {
     setConfirmPassword('');
 
     // Exiba uma mensagem de sucesso ou redirecione o usuário para outra tela
-    navigation.navigate('Login');
+    router.replace('Login');
   };
 
   return (

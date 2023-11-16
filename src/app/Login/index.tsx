@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { router } from "../(tabs)";
 
 const Header = () => (
   <View style={styles.header}>
@@ -16,7 +17,7 @@ const Header = () => (
   </View>
 );
 
-const UserLogin = ({ navigation }) => {
+const UserLogin = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +32,7 @@ const UserLogin = ({ navigation }) => {
     setEmail("");
     setPassword("");
 
-    navigation.navigate('Home');
+    router.replace('Home');
 
    
   };

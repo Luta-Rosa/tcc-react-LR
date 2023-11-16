@@ -8,10 +8,9 @@ import {
 } from "react-native";
 import { StyleSheet } from "react-native";
 import { NavigationProp } from '@react-navigation/native';
-import Footer from "../../components/footer";
 import Menu from "../../components/menu";
-import { Carousel } from '../../components/carousel';
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
+import { useRouter } from "expo-router";
 
 const SLIDER_WIDTH = Dimensions.get("window").width;
 const ITEM_WIDTH = SLIDER_WIDTH * 0.8;
@@ -21,32 +20,28 @@ const BUTTON_HEIGHT = 60; // Ajuste a altura desejada
 const BUTTON_TEXT_SIZE = 19; // Ajuste o tamanho do texto conforme desejado
 const BUTTON_MARGIN_BOTTOM = 45;
 
-export default function Home({ navigation }) {
+export const router = useRouter();
+
+export default function Home() {
   return (
     <View style={styles.container}>
       <Menu />
       <ScrollView>
-
-         {/* <View style={styles.carousel}>
-          <Carousel />
-        </View>  */}
-        
         <View style={styles.centeredContainer}>
           <TouchableOpacity
             style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]}
-            onPress={() => navigation.navigate("Cuidados")}
+            onPress={() => router.replace("Cuidados")}
           >
             <Text style={styles.buttonText}>Cuidados</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]}
-            onPress={() => navigation.navigate("Saude-mental")}
+            onPress={() => router.replace("Saude-mental")}
           >
             <Text style={styles.buttonText}>Saúde Mental</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
-      <Footer />
     </View>
   );
 }
@@ -84,8 +79,5 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: BUTTON_TEXT_SIZE,
     color: "#2B4A6D",
-  },
-  carousel: {
-    marginTop: vw(8),
   },
 });

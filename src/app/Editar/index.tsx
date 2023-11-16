@@ -18,7 +18,7 @@ const UserScreen = () => {
   const [location, setLocation] = useState("");
   const [userImage, setUserImage] = useState(null);
 
-  // Função para manipular o envio dos dados do usuário
+  /* // Função para manipular o envio dos dados do usuário
   const handleUserSubmit = () => {
     // Aqui você pode adicionar a lógica para enviar os dados do usuário para o servidor ou armazená-los localmente.
     // Certifique-se de validar e tratar os dados adequadamente.
@@ -38,13 +38,13 @@ const UserScreen = () => {
       "Carregar imagem",
       "Implemente a funcionalidade para carregar uma imagem do usuário."
     );
-  };
+  }; */
 
   return (
     <View style={styles.container}>
       <Back cor="#496F99" seta="#FFFFFF" />
       <View style={styles.backgroundImg}>
-        <TouchableOpacity style={styles.imagePicker} onPress={handleImagePick}>
+        <TouchableOpacity style={styles.imagePicker} onPress={() => {}}>
           <View style={styles.imageContainer}>
             {userImage ? (
               <Image source={{ uri: userImage }} />
@@ -99,9 +99,7 @@ const UserScreen = () => {
           />
         </View>
       </View>
-
-      {}
-      <Button title="Salvar" onPress={handleUserSubmit} />
+      <Button title="Salvar" onPress={() => {}} />
 
     </View>
   );

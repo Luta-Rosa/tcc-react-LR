@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { router } from "../(tabs)";
 
-function YourComponent({navigation}) {
+function YourComponent() {
   
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.navigate("Cadastro")}
+      onPress={() => router.replace("Cadastro")}
     >
       <Text style={styles.title}>LUTA ROSA</Text>
       <Text style={styles.subtitle}>JUNTAS PELA VIDA</Text>
