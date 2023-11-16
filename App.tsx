@@ -45,6 +45,7 @@ declare global {
       Config: undefined;
       User: undefined;
       Guia: undefined;
+      Footer: undefined;
     }
   }
 }
@@ -103,6 +104,7 @@ export default function App(){
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
+      <Footer />
     </NavigationContainer>
    
   );

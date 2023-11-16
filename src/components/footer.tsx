@@ -3,18 +3,18 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 
-export default function Footer() {
+export default function Footer({ navigation }: any) {
   return (
     <View style={styles.footer}>
-        <TouchableOpacity>
+      <TouchableOpacity onPress={navigation.navigate('Home')}>
         <MaterialCommunityIcons name="home" size={38} color="#FFFFFF" />
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={navigation.navigate('Chat')}>
         <MaterialCommunityIcons name="chat" size={38} color="#FFFFFF" />
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={navigation.navigate('Localizacao')}>
         <MaterialCommunityIcons name="map-marker" size={38} color="#FFFFFF" />
       </TouchableOpacity>
     </View>

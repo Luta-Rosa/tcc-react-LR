@@ -8,10 +8,10 @@ import {
 } from "react-native";
 import { StyleSheet } from "react-native";
 import { NavigationProp } from '@react-navigation/native';
-import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import Footer from "../../components/footer";
 import Menu from "../../components/menu";
 import { Carousel } from '../../components/carousel';
+import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
 const SLIDER_WIDTH = Dimensions.get("window").width;
 const ITEM_WIDTH = SLIDER_WIDTH * 0.8;
