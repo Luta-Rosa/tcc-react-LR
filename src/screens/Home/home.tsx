@@ -29,29 +29,13 @@ const carouselItems = [
   { imgUrl: foto3 },
 ];
 
-function CarouselCardItem() {
-  return (
-    <View style={styles.cardContainer} key={index}>
-      <View style={styles.card}>
-        {/* <Image style={styles.image} source={item.imgUrl} /> */}
-      </View>
-    </View>
-  );
-}
 
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
     <Header />
     <ScrollView>
-      {/* <Carousel
-        data={carouselItems}
-        renderItem={CarouselCardItem}
-        sliderWidth={SLIDER_WIDTH}
-        itemWidth={ITEM_WIDTH}
-        useScrollView={true}
-        layout="default"
-      /> */}
+
       <View style={styles.centeredContainer}>
         <TouchableOpacity style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]} onPress={() => navigation.navigate('Cuidados')}>
           <Text style={styles.buttonText}>Cuidados</Text>
