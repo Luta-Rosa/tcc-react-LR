@@ -1,12 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-function YourComponent() {
+function YourComponent({navigation}) {
+  
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate("Cadastro")}
+    >
       <Text style={styles.title}>LUTA ROSA</Text>
       <Text style={styles.subtitle}>JUNTAS PELA VIDA</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
