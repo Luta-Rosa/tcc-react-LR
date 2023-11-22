@@ -32,7 +32,6 @@ const UserScreen = () => {
     
     Alert.alert(
       "Carregar imagem",
-      "Implemente a funcionalidade para carregar uma imagem do usuário."
     );
   };
 
@@ -95,8 +94,12 @@ const UserScreen = () => {
         </View>
       </View>
 
-      <Button title="Salvar"  onPress={handleUserSubmit}  />
-
+      <TouchableOpacity
+        style={styles.saveButton}
+        onPress={handleUserSubmit}
+      >
+        <Text style={styles.saveButtonText}>Salvar</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -164,6 +167,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#E86687",
     height: 161,
     width: "auto",
+  },
+
+  saveButton: {
+    backgroundColor: "#5CB85C",
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+    width: 100,
+    alignSelf: "center",
+  },
+
+  saveButtonText: {
+    color: "#5CB85C",
+    textAlign: "center",
+    fontWeight: "bold",
   },
 
 });

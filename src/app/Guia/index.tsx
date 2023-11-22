@@ -5,11 +5,9 @@ function GuiaDeUsoPage() {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Navegação na Página Inicial:</Text>
+        <Text style={styles.cardTitle}>Navegação na Página Inicial</Text>
       </View>
 
-
-     
       <InformationText
         title="Procure uma rede de Apoio:"
         description="Converse com outros usuários e compartilhe suas experiências."
@@ -18,12 +16,10 @@ function GuiaDeUsoPage() {
         title="Informações sobre Câncer de Mama e de Colo de Útero:"
         description="Acesse artigos, vídeos e informações atualizadas sobre câncer de mama e de colo de útero"
       />
-      
       <InformationText
         title="Calendário de Exames:"
         description="Mantenha um registro de suas datas de exames e lembretes."
       />
-      
     </View>
   );
 }
@@ -40,8 +36,6 @@ function InformationText({ title, description }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     padding: 20,
   },
   card: {
@@ -61,10 +55,11 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 20,
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "justify",
   },
   information: {
     marginBottom: 20,
+    textAlign: "justify",
   },
   title: {
     fontSize: 18,
@@ -73,6 +68,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
+    textAlign: "justify",
   },
 });
 

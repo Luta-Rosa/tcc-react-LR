@@ -17,7 +17,7 @@ export default function UserLayout() {
               style={{ marginRight: 16 }}
               onPress={() => router.replace("home")}
             >
-              <FontAwesome name="arrow-left" size={24} />
+              <FontAwesome name="arrow-left" size={20} />
             </Pressable>
           ),
           headerRight: () => (
@@ -25,7 +25,7 @@ export default function UserLayout() {
               style={{ marginRight: 16 }}
               onPress={() => router.replace("(auth)")}
             >
-              <FontAwesome color="black"name="sign-out" size={24} />
+              <FontAwesome color="black"name="sign-out" size={20} />
             </Pressable>
           ),
         }}

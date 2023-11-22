@@ -11,12 +11,12 @@ import { StyleSheet } from "react-native";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import { useNavigation } from "@react-navigation/native";
 import Feather from "@expo/vector-icons/Feather";
-import { useRouter } from 'expo-router';
+import { useRouter } from "expo-router";
 
 export default function Toolbar() {
   const [modalVisible, setModalVisible] = useState(false);
 
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <View>
@@ -25,11 +25,11 @@ export default function Toolbar() {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          setModalVisible(!modalVisible)
+          setModalVisible(!modalVisible);
         }}
         onShow={() => {
-         modalVisible;
-         console.log(modalVisible)
+          modalVisible;
+          console.log(modalVisible);
         }}
       >
         <View>
@@ -73,7 +73,11 @@ export default function Toolbar() {
                   </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    router.push("About");
+                  }}
+                >
                   <View style={styles.itens}>
                     <Feather
                       name="info"
@@ -84,7 +88,14 @@ export default function Toolbar() {
                     <Text style={styles.textitens}>Sobre</Text>
                   </View>
                 </TouchableOpacity>
-                <Text style={styles.text}>Política e Privacidade</Text>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    router.push("Privacidade");
+                  }}
+                >
+                  <Text style={styles.text}>Política e Privacidade</Text>
+                </TouchableOpacity>
               </View>
             </View>
           </View>

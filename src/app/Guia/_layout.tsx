@@ -17,7 +17,7 @@ export default function GuiaLayout() {
                   style={{ marginRight: 16 }}
                   onPress={() => router.replace("home")}
                 >
-                  <FontAwesome name="arrow-left" size={24} />
+                  <FontAwesome name="arrow-left" size={20} />
                 </Pressable>
               ),
             }}

@@ -5,6 +5,7 @@ import {
   Dimensions,
   TouchableOpacity,
   ScrollView,
+  StatusBar,
 } from "react-native";
 import { StyleSheet } from "react-native";
 import { NavigationProp } from "@react-navigation/native";
@@ -25,23 +26,23 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Menu />
-      <ScrollView>
-        <View style={styles.centeredContainer}>
-          <TouchableOpacity
-            style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]}
-            onPress={() => router.replace("Cuidados")}
-          >
-            <Text style={styles.buttonText}>Cuidados</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]}
-            onPress={() => router.replace("Saude-mental")}
-          >
-            <Text style={styles.buttonText}>Saúde Mental</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+        <Menu />
+        <ScrollView>
+          <View style={styles.centeredContainer}>
+            <TouchableOpacity
+              style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]}
+              onPress={() => router.replace("Cuidados")}
+            >
+              <Text style={styles.buttonText}>Cuidados</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.button, { marginBottom: BUTTON_MARGIN_BOTTOM }]}
+              onPress={() => router.replace("Saude-mental")}
+            >
+              <Text style={styles.buttonText}>Saúde Mental</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
     </View>
   );
 }

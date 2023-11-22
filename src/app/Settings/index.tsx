@@ -7,7 +7,6 @@ function SettingsScreen() {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.cardTitle}>Notificações</Text>
       <SettingsCard
         title="Central de Contas"
         icon="user"
@@ -44,10 +43,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: "center",
+    backgroundColor:"white",
   },
+  
   card: {
-    backgroundColor: "#D9FFE5", // Cor de fundo
+    backgroundColor: "#D9FFE5",
     borderRadius: 10,
     padding: 20,
     marginBottom: 20,

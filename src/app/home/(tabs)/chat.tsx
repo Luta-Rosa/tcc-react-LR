@@ -4,6 +4,7 @@ import { FontAwesome5 } from '@expo/vector-icons'; // Importe do ícone de lixei
 import Emoji from 'react-native-emoji'; // importe dos emojis
 import EmojiSelector from 'react-native-emoji-selector'; // Importe do seletor de emojis
 import { useRouter } from 'expo-router';
+import Header from '../../../components/header';
 
 function ChatScreen() {
   const [messages, setMessages] = useState([]);
@@ -38,9 +39,7 @@ function ChatScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Mulheres Conectadas</Text>
-      </View>
+     <Header />
       <FlatList
         ref={flatListRef}
         data={messages}

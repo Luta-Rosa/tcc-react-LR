@@ -5,7 +5,6 @@ import { devs } from "./mocks";
 function About() {
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Sobre</Text>
       <View style={styles.card}>
         <Text style={styles.texto}>
           "Luta Rosa - Juntas Pela Vida" é um projeto que visa conscientizar as
@@ -29,6 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 20,
+    backgroundColor: "white",
   },
   card: {
     width: 350,

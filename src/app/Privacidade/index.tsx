@@ -2,15 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, ScrollView, Linking } from "react-native";
 
 const PrivacyScreen = () => {
-  // Função para abrir um link externo (por exemplo, para a política de privacidade completa)
-  /*  const openExternalLink = async (url: string) => {
-    await Linking.openURL(url);
-  }; */
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.heading}>Política de Privacidade</Text>
-
       <Text style={styles.summary}>
         Bem-vindo à nossa política de privacidade. Abaixo, fornecemos um resumo
         das nossas práticas de privacidade.
@@ -47,14 +41,10 @@ const PrivacyScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     paddingHorizontal: 16,
     paddingBottom: 20,
     backgroundColor: "white",
-  },
-  heading: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginTop: 20,
   },
   summary: {
     fontSize: 16,
@@ -75,7 +65,7 @@ const styles = StyleSheet.create({
   },
   updateInfo: {
     fontSize: 12,
-    marginTop: 50,
+    marginTop: 200,
     color: "gray",
     textAlign: "center",
   },
