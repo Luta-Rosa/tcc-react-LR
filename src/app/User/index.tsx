@@ -164,13 +164,13 @@ const styles = StyleSheet.create({
   },
 
   backgroundImg: {
-    backgroundColor: "#E86687",
+    backgroundColor: "#85CC9B",
     height: 161,
     width: "auto",
   },
 
   saveButton: {
-    backgroundColor: "#5CB85C",
+    backgroundColor: "#85CC9B",
     padding: 10,
     borderRadius: 5,
     marginTop: 20,
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
 
   saveButtonText: {
-    color: "#5CB85C",
+    color: "white",
     textAlign: "center",
     fontWeight: "bold",
   },

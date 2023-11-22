@@ -1,25 +1,33 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, TextInput, FlatList, TouchableOpacity, KeyboardAvoidingView, StyleSheet } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons'; // Importe do ícone de lixeira
-import Emoji from 'react-native-emoji'; // importe dos emojis
-import EmojiSelector from 'react-native-emoji-selector'; // Importe do seletor de emojis
-import { useRouter } from 'expo-router';
-import Header from '../../../components/header';
+import React, { useState, useRef } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  FlatList,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  StyleSheet,
+} from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons"; // Importe do ícone de lixeira
+import Emoji from "react-native-emoji"; // importe dos emojis
+import EmojiSelector from "react-native-emoji-selector"; // Importe do seletor de emojis
+import { useRouter } from "expo-router";
+import Header from "../../../components/header";
 
 function ChatScreen() {
   const [messages, setMessages] = useState([]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const flatListRef = useRef(null);
   const [isEmojiSelectorVisible, setEmojiSelectorVisible] = useState(false); // Estado para controlar a visibilidade do seletor de emojis
 
   const router = useRouter();
 
   const sendMessage = () => {
-    if (message.trim() === '') return;
+    if (message.trim() === "") return;
 
     const newMessage = { text: message, id: messages.length + 1, isUser: true };
     setMessages([...messages, newMessage]);
-    setMessage('');
+    setMessage("");
 
     // rolar automaticamente para a nova mensagem
     flatListRef.current.scrollToEnd({ animated: true });
@@ -39,20 +47,18 @@ function ChatScreen() {
 
   return (
     <View style={styles.container}>
-     <Header />
+      <Header />
       <FlatList
         ref={flatListRef}
         data={messages}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.messageContainer}>
-            <Text style={styles.messageText}>
-            
-              {item.text}
-            </Text>
+            <Text style={styles.messageText}>{item.text}</Text>
             {item.isUser && (
               <TouchableOpacity onPress={() => deleteMessage(item.id)}>
-                <FontAwesome5 name="trash-alt" size={20} color="black" />{/* Ícone de lixeira */}
+                <FontAwesome5 name="trash-alt" size={20} color="black" />
+                {/* Ícone de lixeira */}
               </TouchableOpacity>
             )}
           </View>
@@ -65,8 +71,12 @@ function ChatScreen() {
           placeholder="Digite sua mensagem"
           style={styles.input}
         />
-        <TouchableOpacity onPress={() => setEmojiSelectorVisible(true)} style={styles.emojiButton}>
-          <FontAwesome5 name="smile" size={20} color="black" />{/* Ícone de emoji */}
+        <TouchableOpacity
+          onPress={() => setEmojiSelectorVisible(true)}
+          style={styles.emojiButton}
+        >
+          <FontAwesome5 name="smile" size={20} color="black" />
+          {/* Ícone de emoji */}
         </TouchableOpacity>
         <TouchableOpacity onPress={sendMessage} style={styles.sendButton}>
           <Text style={styles.sendButtonText}>Enviar</Text>
@@ -77,48 +87,49 @@ function ChatScreen() {
       )}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
+    backgroundColor: "white",
   },
   header: {
-    backgroundColor: '#F59CB7',
+    backgroundColor: "#F59CB7",
     padding: 15,
-    alignItems: 'center',
+    alignItems: "center",
   },
   headerText: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: 'black',
+    fontWeight: "bold",
+    color: "black",
   },
   messageContainer: {
-    alignSelf: 'flex-end',
-    flexDirection: 'row',
-    alignItems: 'center',
+    alignSelf: "flex-end",
+    flexDirection: "row",
+    alignItems: "center",
     marginVertical: 5,
     marginHorizontal: 10,
   },
   messageText: {
-    backgroundColor: '#FFD4DF',
-    color: 'black',
+    backgroundColor: "#FFD4DF",
+    color: "black",
     padding: 10,
     borderRadius: 10,
     marginRight: 10,
   },
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     borderTopWidth: 1,
-    borderTopColor: '#ccc',
+    borderTopColor: "#ccc",
     padding: 10,
   },
   input: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -126,12 +137,12 @@ const styles = StyleSheet.create({
   },
   sendButton: {
     marginLeft: 10,
-    backgroundColor: '#F59CB7',
+    backgroundColor: "#F59CB7",
     borderRadius: 20,
     padding: 10,
   },
   sendButtonText: {
-    color: 'black',
+    color: "black",
   },
   emojiButton: {
     marginLeft: 10,

@@ -11,7 +11,7 @@ export default function SettingsLayout() {
       <Stack.Screen
         name="index"
         options={{
-          headerTitle: "Notificações",
+          headerTitle: "Configurações",
           headerLeft: () => (
             <Pressable
               style={{ marginRight: 16 }}

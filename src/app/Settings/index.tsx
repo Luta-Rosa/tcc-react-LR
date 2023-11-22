@@ -1,19 +1,42 @@
 import React, { useState } from "react";
-import { View, Text, Switch, StyleSheet } from "react-native";
+import { View, Text, Switch, StyleSheet, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 function SettingsScreen() {
   const [theme, setTheme] = useState("light");
+  const router = useRouter();
 
   return (
     <View style={styles.container}>
-      <SettingsCard
-        title="Central de Contas"
-        icon="user"
-        children={undefined}
-      />
-      <SettingsCard title="Privacidade" icon="lock" children={undefined} />
-      <SettingsCard title="Notificações" icon="bell" children={undefined}></SettingsCard>
+      <TouchableOpacity
+        onPress={() => {
+          router.push("Editar");
+        }}
+      >
+        <SettingsCard
+          title="Central de Contas"
+          icon="user"
+          children={undefined}
+        />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => {
+          router.push("Privacidade");
+        }}>
+        <SettingsCard title="Privacidade" icon="lock" children={undefined} />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => {
+          router.push("Notification");
+        }}>
+        <SettingsCard
+          title="Notificações"
+          icon="bell"
+          children={undefined}
+        ></SettingsCard>
+      </TouchableOpacity>
+
       <SettingsCard title="Tema" icon="palette">
         <View style={styles.settingItem}>
           <Text>Tema Escuro</Text>
@@ -43,9 +66,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor:"white",
+    backgroundColor: "white",
   },
-  
+
   card: {
     backgroundColor: "#D9FFE5",
     borderRadius: 10,

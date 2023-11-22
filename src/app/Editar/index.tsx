@@ -18,33 +18,27 @@ const UserScreen = () => {
   const [location, setLocation] = useState("");
   const [userImage, setUserImage] = useState(null);
 
-  // Função para manipular o envio dos dados do usuário
+ 
   const handleUserSubmit = () => {
-    // Aqui você pode adicionar a lógica para enviar os dados do usuário para o servidor ou armazená-los localmente.
-    // Certifique-se de validar e tratar os dados adequadamente.
-
+    
     Alert.alert(
-      "Dados do usuário editados",
+      "Dados do usuário enviados",
       `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nLocalização: ${location}`
     );
   };
 
-  // Função para carregar uma imagem do usuário (pode ser substituída pela funcionalidade de escolher imagens da galeria)
+  
   const handleImagePick = () => {
-    // Implemente a funcionalidade para carregar uma imagem do usuário aqui.
-    // Pode ser feita através de bibliotecas como react-native-image-picker ou react-native-camera.
-    // Neste exemplo, estamos apenas mostrando um alerta.
+    
     Alert.alert(
       "Carregar imagem",
-      "Implemente a funcionalidade para carregar uma imagem do usuário."
     );
   };
 
   return (
     <View style={styles.container}>
-      <Back cor="#496F99" seta="#FFFFFF" />
       <View style={styles.backgroundImg}>
-        <TouchableOpacity style={styles.imagePicker} onPress={() => {}}>
+        <TouchableOpacity style={styles.imagePicker} onPress={handleImagePick}>
           <View style={styles.imageContainer}>
             {userImage ? (
               <Image source={{ uri: userImage }} />
@@ -65,6 +59,7 @@ const UserScreen = () => {
             value={name}
             onChangeText={(text) => setName(text)}
             placeholder="Digite seu nome"
+            
           />
         </View>
 
@@ -98,7 +93,13 @@ const UserScreen = () => {
           />
         </View>
       </View>
-      <Button title="Salvar" onPress={() => {}} />
+
+      <TouchableOpacity
+        style={styles.saveButton}
+        onPress={handleUserSubmit}
+      >
+        <Text style={styles.saveButtonText}>Salvar</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -167,6 +168,22 @@ const styles = StyleSheet.create({
     height: 161,
     width: "auto",
   },
+
+  saveButton: {
+    backgroundColor: "#496F99",
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+    width: 100,
+    alignSelf: "center",
+  },
+
+  saveButtonText: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+
 });
 
 export default UserScreen;

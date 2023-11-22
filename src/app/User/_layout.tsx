@@ -11,7 +11,7 @@ export default function UserLayout() {
       <Stack.Screen
         name="index"
         options={{
-          headerTitle: "Voltar",
+          headerTitle: "", 
           headerLeft: () => (
             <Pressable
               style={{ marginRight: 16 }}
@@ -20,14 +20,10 @@ export default function UserLayout() {
               <FontAwesome name="arrow-left" size={20} />
             </Pressable>
           ),
-          headerRight: () => (
-            <Pressable
-              style={{ marginRight: 16 }}
-              onPress={() => router.replace("(auth)")}
-            >
-              <FontAwesome color="black"name="sign-out" size={20} />
-            </Pressable>
-          ),
+    
+          headerStyle: {
+            backgroundColor: "#85CC9B",
+          },
         }}
       />
     </Stack>
