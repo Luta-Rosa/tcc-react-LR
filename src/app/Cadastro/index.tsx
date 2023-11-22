@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { Picker } from '@react-native-picker/picker';
-import { NavigationProp, useNavigation } from "@react-navigation/native";
-import { router } from '../(tabs)';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { Picker } from "@react-native-picker/picker";
+import { useRouter } from "expo-router";
 
 const Header = () => (
   <View style={styles.header}>
@@ -12,14 +17,17 @@ const Header = () => (
   </View>
 );
 
-const UserRegistration = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+function UserRegistration() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState(false);
+
+  const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -30,20 +38,15 @@ const UserRegistration = () => {
   };
 
   const handleRegistration = () => {
-    // Implemente a lógica para processar o cadastro do usuário aqui
-    // Por exemplo, você pode fazer uma solicitação para um servidor ou armazenar os dados localmente.
+    
 
-    console.log('Cidade selecionada:', selectedCity);
-
-    // Limpe os campos após o registro
-    setName('');
-    setEmail('');
-    setSelectedCity('');
-    setPassword('');
-    setConfirmPassword('');
-
-    // Exiba uma mensagem de sucesso ou redirecione o usuário para outra tela
-    router.replace('Login');
+    console.log("Cidade selecionada:", selectedCity);
+    setName("");
+    setEmail("");
+    setSelectedCity("");
+    setPassword("");
+    setConfirmPassword("");
+    router.replace("(auth)");
   };
 
   return (
@@ -53,22 +56,22 @@ const UserRegistration = () => {
         <TextInput
           placeholder="Nome de Usuário"
           value={name}
-          onChangeText={text => setName(text)}
+          onChangeText={(text) => setName(text)}
           style={styles.input}
         />
         <TextInput
           placeholder="Email"
           value={email}
-          onChangeText={text => setEmail(text)}
+          onChangeText={(text) => setEmail(text)}
           style={styles.input}
         />
-      
+
         <View style={styles.passwordContainer}>
           <TextInput
             placeholder="Senha"
             secureTextEntry={!isPasswordVisible}
             value={password}
-            onChangeText={text => setPassword(text)}
+            onChangeText={(text) => setPassword(text)}
             style={styles.passwordInput}
           />
           <TouchableOpacity
@@ -76,7 +79,7 @@ const UserRegistration = () => {
             style={styles.eyeIcon}
           >
             <FontAwesome5
-              name={isPasswordVisible ? 'eye-slash' : 'eye'}
+              name={isPasswordVisible ? "eye-slash" : "eye"}
               size={20}
               color="#888"
             />
@@ -87,7 +90,7 @@ const UserRegistration = () => {
             placeholder="Confirmar Senha"
             secureTextEntry={!isConfirmPasswordVisible}
             value={confirmPassword}
-            onChangeText={text => setConfirmPassword(text)}
+            onChangeText={(text) => setConfirmPassword(text)}
             style={styles.passwordInput}
           />
           <TouchableOpacity
@@ -95,7 +98,7 @@ const UserRegistration = () => {
             style={styles.eyeIcon}
           >
             <FontAwesome5
-              name={isConfirmPasswordVisible ? 'eye-slash' : 'eye'}
+              name={isConfirmPasswordVisible ? "eye-slash" : "eye"}
               size={20}
               color="#888"
             />
@@ -110,47 +113,46 @@ const UserRegistration = () => {
           <Picker.Item label="Lençóis Paulista" value="Lençóis Paulista" />
           <Picker.Item label="Bauru" value="Bauru" />
           <Picker.Item label="Jaú" value="Jaú" />
-    
         </Picker>
       </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Salvar</Text>
+      </TouchableOpacity>
       <TouchableOpacity onPress={handleRegistration} style={styles.button}>
-          <Text style={styles.buttonText}>Cadastrar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleRegistration} style={styles.button}>
-          <Text style={styles.buttonText}>Já tenho conta</Text>
-        </TouchableOpacity>
+        <Text style={styles.buttonText}>Já tenho conta</Text>
+      </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#E86687',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#E86687",
   },
   header: {
     marginBottom: 20,
   },
   title: {
     fontSize: 24,
-    textAlign: 'center',
-    color: 'white',
+    textAlign: "center",
+    color: "white",
   },
   subtitle: {
     fontSize: 16,
-    textAlign: 'center',
-    color: 'white',
+    textAlign: "center",
+    color: "white",
   },
   card: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 10,
     padding: 20,
-    width: '80%',
-    shadowColor: '#000',
+    width: "80%",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -162,16 +164,16 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 10,
   },
   passwordContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 10,
     marginBottom: 10,
   },
@@ -184,15 +186,15 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   button: {
-    backgroundColor: '#E86687',
+    backgroundColor: "#E86687",
     padding: 10,
     borderRadius: 10,
     marginTop: 10,
   },
   buttonText: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize:17
+    color: "white",
+    textAlign: "center",
+    fontSize: 17,
   },
 });
 

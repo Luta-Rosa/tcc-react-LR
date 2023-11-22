@@ -11,20 +11,12 @@ import { StyleSheet } from "react-native";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import { useNavigation } from "@react-navigation/native";
 import Feather from "@expo/vector-icons/Feather";
+import { useRouter } from 'expo-router';
 
 export default function Toolbar() {
-  const { navigate, addListener } = useNavigation();
-
   const [modalVisible, setModalVisible] = useState(false);
 
-  useEffect(() => {
-    const unsubscribe = addListener("focus", () => {
-      // Redefina o estado do modal quando a tela estiver em foco
-      setModalVisible(false);
-    });
-
-    return unsubscribe;
-  }, [addListener]);
+  const router = useRouter()
 
   return (
     <View>
@@ -33,8 +25,11 @@ export default function Toolbar() {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
+          setModalVisible(!modalVisible)
+        }}
+        onShow={() => {
+         modalVisible;
+         console.log(modalVisible)
         }}
       >
         <View>
@@ -48,7 +43,7 @@ export default function Toolbar() {
               <View style={styles.conteudo}>
                 <TouchableOpacity
                   onPress={() => {
-                    navigate("Config");
+                    router.push("Settings");
                   }}
                 >
                   <View style={styles.itens}>
@@ -64,7 +59,7 @@ export default function Toolbar() {
 
                 <TouchableOpacity
                   onPress={() => {
-                    navigate("Config");
+                    router.push("Guia");
                   }}
                 >
                   <View style={styles.itens}>
@@ -120,7 +115,7 @@ export default function Toolbar() {
 
         <TouchableOpacity
           onPress={() => {
-            navigate("User");
+            router.push("User");
           }}
         >
           <Feather

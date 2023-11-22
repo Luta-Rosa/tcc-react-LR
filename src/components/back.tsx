@@ -8,20 +8,6 @@ interface Props {
 }
 
 export default function Back({ cor, seta }: Props) {
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: `${cor}`,
-      color: `${seta}`,
-    },
-
-    voltar: {
-      flexDirection: "row",
-      marginLeft: "4%",
-      marginTop: "4%",
-    },
-  });
-
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.voltar}>
@@ -30,3 +16,17 @@ export default function Back({ cor, seta }: Props) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: `green`,
+    color: `red`,
+  },
+
+  voltar: {
+    flexDirection: "row",
+    marginLeft: "4%",
+    marginTop: "4%",
+  },
+});

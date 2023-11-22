@@ -3,12 +3,15 @@ import { View, Text, TextInput, FlatList, TouchableOpacity, KeyboardAvoidingView
 import { FontAwesome5 } from '@expo/vector-icons'; // Importe do ícone de lixeira
 import Emoji from 'react-native-emoji'; // importe dos emojis
 import EmojiSelector from 'react-native-emoji-selector'; // Importe do seletor de emojis
+import { useRouter } from 'expo-router';
 
-const ChatScreen = () => {
+function ChatScreen() {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const flatListRef = useRef(null);
   const [isEmojiSelectorVisible, setEmojiSelectorVisible] = useState(false); // Estado para controlar a visibilidade do seletor de emojis
+
+  const router = useRouter();
 
   const sendMessage = () => {
     if (message.trim() === '') return;

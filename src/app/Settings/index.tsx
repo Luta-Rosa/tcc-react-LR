@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, Switch, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+
 function SettingsScreen() {
-  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [theme, setTheme] = useState("light");
 
   return (

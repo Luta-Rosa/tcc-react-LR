@@ -7,8 +7,8 @@ import {
   ScrollView,
 } from "react-native";
 import { StyleSheet } from "react-native";
-import { NavigationProp } from '@react-navigation/native';
-import Menu from "../../components/menu";
+import { NavigationProp } from "@react-navigation/native";
+import Menu from "../../../components/menu";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import { useRouter } from "expo-router";
 
@@ -20,9 +20,9 @@ const BUTTON_HEIGHT = 60; // Ajuste a altura desejada
 const BUTTON_TEXT_SIZE = 19; // Ajuste o tamanho do texto conforme desejado
 const BUTTON_MARGIN_BOTTOM = 45;
 
-export const router = useRouter();
-
 export default function Home() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <Menu />

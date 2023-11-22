@@ -1,9 +1,10 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { router } from "../(tabs)";
 
 function YourComponent() {
-  
+  const router = useRouter();
+
   return (
     <TouchableOpacity
       style={styles.container}

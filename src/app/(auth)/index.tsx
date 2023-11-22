@@ -7,8 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { NavigationProp, useNavigation } from "@react-navigation/native";
-import { router } from "../(tabs)";
+import { useRouter } from "expo-router";
 
 const Header = () => (
   <View style={styles.header}>
@@ -17,24 +16,23 @@ const Header = () => (
   </View>
 );
 
-const UserLogin = () => {
+function UserLogin() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const router = useRouter();
+
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
   const handleLogin = () => {
- 
     setName("");
     setEmail("");
     setPassword("");
-
-    router.replace('Home');
-
-   
+    router.replace("/home/(tabs)");
   };
 
   return (
@@ -76,9 +74,12 @@ const UserLogin = () => {
       <TouchableOpacity onPress={handleLogin} style={styles.button}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => router.replace("Cadastro")} style={styles.button}>
+        <Text style={styles.buttonText}>Cadastrar-se</Text>
+      </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -94,7 +95,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: "center",
     color: "white",
-    
   },
   subtitle: {
     fontSize: 16,

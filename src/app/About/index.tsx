@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { devs } from "./mocks";
 
-const About: React.FC = () => {
+function About() {
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Sobre</Text>
@@ -22,7 +22,7 @@ const About: React.FC = () => {
       ))}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
