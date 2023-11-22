@@ -18,14 +18,6 @@ const UserScreen = () => {
   const [location, setLocation] = useState("");
   const [userImage, setUserImage] = useState(null);
 
- 
-  const handleUserSubmit = () => {
-    
-    Alert.alert(
-      "Dados do usuário enviados",
-      `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nLocalização: ${location}`
-    );
-  };
 
   
   const handleImagePick = () => {
@@ -94,12 +86,7 @@ const UserScreen = () => {
         </View>
       </View>
 
-      <TouchableOpacity
-        style={styles.saveButton}
-        onPress={handleUserSubmit}
-      >
-        <Text style={styles.saveButtonText}>Salvar</Text>
-      </TouchableOpacity>
+     
     </View>
   );
 };
@@ -169,20 +156,8 @@ const styles = StyleSheet.create({
     width: "auto",
   },
 
-  saveButton: {
-    backgroundColor: "#85CC9B",
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 20,
-    width: 100,
-    alignSelf: "center",
-  },
 
-  saveButtonText: {
-    color: "white",
-    textAlign: "center",
-    fontWeight: "bold",
-  },
+
 
 });
 

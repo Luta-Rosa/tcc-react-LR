@@ -11,23 +11,8 @@ export default function EditarLayout() {
       <Stack.Screen
         name="index"
         options={{
-          headerTitle: "", 
-          headerLeft: () => (
-            <Pressable
-              style={{ marginRight: 16 }}
-              onPress={() => router.replace("home")}
-            >
-              <FontAwesome name="arrow-left" size={20} />
-            </Pressable>
-          ),
-          headerRight: () => (
-            <Pressable
-              style={{ marginRight: 16 }}
-              onPress={() => router.replace("(auth)")}
-            >
-              <FontAwesome color="black" name="sign-out" size={20} />
-            </Pressable>
-          ),
+          headerTitle: "Editar Usuário", 
+      
           headerStyle: {
             backgroundColor: "#496F99",
           },

@@ -10,7 +10,7 @@ function NotificationSettingsScreen() {
 
   return (
     <View style={[styles.container, { paddingTop: 10 }]}>
-      <Text style={styles.cardTitle}>Notificações</Text>
+
       <View style={styles.centeredContent}>
         <NotificationCard title="Notificações Gerais">
           <View style={styles.settingItem}>
@@ -56,11 +56,11 @@ function NotificationCard({ title, children }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+ 
     padding: 20,
   },
   centeredContent: {
-    flex: 1,
+   
     justifyContent: "center", // Centraliza verticalmente
   },
   card: {

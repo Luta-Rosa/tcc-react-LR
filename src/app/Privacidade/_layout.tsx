@@ -12,14 +12,7 @@ export default function PrivacidadeLayout() {
             name="index"
             options={{
               headerTitle: "Política e Privacidade",
-              headerLeft: () => (
-                <Pressable
-                  style={{ marginRight: 16 }}
-                  onPress={() => router.replace("home")}
-                >
-                  <FontAwesome name="arrow-left" size={20} />
-                </Pressable>
-              ),
+             
             }}
           />
         </Stack>
