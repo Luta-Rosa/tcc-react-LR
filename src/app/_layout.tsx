@@ -13,7 +13,6 @@ export default function AppLayout() {
         <Stack.Screen name="Editar" options={{ headerShown: false }} />
         <Stack.Screen name="Guia" options={{ headerShown: false }} />
         <Stack.Screen name="Notification" options={{ headerShown: false }} />
-        <Stack.Screen name="Open" options={{ headerShown: false }} />
         <Stack.Screen name="Privacidade" options={{ headerShown: false }} />
         <Stack.Screen name="Saude-mental" options={{ headerShown: false }} />
         <Stack.Screen name="Settings" options={{ headerShown: false }} />
