@@ -18,13 +18,8 @@ const UserScreen = () => {
   const [location, setLocation] = useState("");
   const [userImage, setUserImage] = useState(null);
 
-
-  
   const handleImagePick = () => {
-    
-    Alert.alert(
-      "Carregar imagem",
-    );
+    Alert.alert("Carregar imagem");
   };
 
   return (
@@ -51,7 +46,6 @@ const UserScreen = () => {
             value={name}
             onChangeText={(text) => setName(text)}
             placeholder=""
-            
           />
         </View>
 
@@ -85,8 +79,6 @@ const UserScreen = () => {
           />
         </View>
       </View>
-
-     
     </View>
   );
 };
@@ -96,12 +88,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFF",
   },
-
   label: {
     fontSize: 16,
     marginBottom: 5,
   },
-
   input: {
     fontSize: 16,
     height: 36,
@@ -110,12 +100,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingLeft: 10,
   },
-
   imagePicker: {
     alignItems: "center",
     marginTop: 20,
   },
-
   imageContainer: {
     backgroundColor: "#D4E8FF",
     width: 190,
@@ -125,14 +113,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
   imagePickerText: {
     fontSize: 14,
     color: "gray",
     textDecorationLine: "underline",
     textAlign: "center",
   },
-
   card: {
     backgroundColor: "#D9FFE5",
     width: 360,
@@ -145,20 +131,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginLeft: "4%",
   },
-
   inputDiv: {
     width: "90%",
   },
-
   backgroundImg: {
     backgroundColor: "#85CC9B",
     height: 161,
     width: "auto",
   },
-
-
-
-
 });
 
 export default UserScreen;

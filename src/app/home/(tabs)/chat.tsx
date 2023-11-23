@@ -5,15 +5,12 @@ import {
   TextInput,
   FlatList,
   TouchableOpacity,
-  KeyboardAvoidingView,
   StyleSheet,
 } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons"; // Importe do ícone de lixeira
-import Emoji from "react-native-emoji"; // importe dos emojis
-import EmojiSelector from "react-native-emoji-selector"; // Importe do seletor de emojis
+import { FontAwesome5 } from "@expo/vector-icons"; 
+import EmojiSelector from "react-native-emoji-selector"; 
 import { useRouter } from "expo-router";
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 
 function ChatScreen() {
   const [messages, setMessages] = useState([]);
@@ -30,17 +27,14 @@ function ChatScreen() {
     setMessages([...messages, newMessage]);
     setMessage("");
 
-    // rolar automaticamente para a nova mensagem
     flatListRef.current.scrollToEnd({ animated: true });
   };
 
-  // apaga as mensagens
   const deleteMessage = (id) => {
     const updatedMessages = messages.filter((message) => message.id !== id);
     setMessages(updatedMessages);
   };
 
-  //  um emoji à mensagem
   const addEmojiToMessage = (emoji) => {
     setMessage(message + emoji);
     setEmojiSelectorVisible(false);
@@ -61,7 +55,6 @@ function ChatScreen() {
             {item.isUser && (
               <TouchableOpacity onPress={() => deleteMessage(item.id)}>
                 <FontAwesome5 name="trash-alt" size={20} color="black" />
-                {/* Ícone de lixeira */}
               </TouchableOpacity>
             )}
           </View>
@@ -79,7 +72,6 @@ function ChatScreen() {
           style={styles.emojiButton}
         >
           <FontAwesome5 name="smile" size={20} color="black" />
-          {/* Ícone de emoji */}
         </TouchableOpacity>
         <TouchableOpacity onPress={sendMessage} style={styles.sendButton}>
           <Text style={styles.sendButtonText}>Enviar</Text>

@@ -56,15 +56,15 @@ function NotificationCard({ title, children }) {
 
 const styles = StyleSheet.create({
   container: {
- 
+    flex:1,
+    backgroundColor: "white",
     padding: 20,
   },
   centeredContent: {
-   
-    justifyContent: "center", // Centraliza verticalmente
+    justifyContent: "center",
   },
   card: {
-    backgroundColor: "#FFD4DF", // Cor do card
+    backgroundColor: "#FFD4DF", 
     borderRadius: 10,
     padding: 15,
     marginBottom: 20,

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 function Localizacao() {
   const cardsData = [
@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFD4DF",
   },
-
   scrollContainer: {
     paddingHorizontal: 16,
     paddingTop: 20,
@@ -85,14 +84,12 @@ const styles = StyleSheet.create({
     elevation: 3,
     overflow: "hidden",
   },
-
   cardImage: {
     width: "100%",
     height: 150,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
-
   cardContent: {
     flexDirection: "row",
     alignItems: "center",
@@ -100,29 +97,24 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginBottom: 16,
   },
-
   icon: {
     marginRight: 10,
   },
-
   textContainer: {
     flex: 1,
     justifyContent: "center",
   },
-
   cardTitle: {
     fontSize: 18,
     fontWeight: "bold",
     color: "black",
     textAlign: "center",
   },
-
   cardDescription: {
     fontSize: 15,
     textAlign: "left",
     color: "black",
   },
-
   phoneContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -130,7 +122,6 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginTop: 0,
   },
-
   cardPhone: {
     fontSize: 15,
     textAlign: "left",
@@ -138,7 +129,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   phoneIcon: {
-    marginRight: 5, // Ajuste para alinhar mais para a esquerda
+    marginRight: 5,
   },
   headerText: {
     textAlign: "center",

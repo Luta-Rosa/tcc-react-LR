@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: `green`,
     color: `red`,
   },
-
   voltar: {
     flexDirection: "row",
     marginLeft: "4%",

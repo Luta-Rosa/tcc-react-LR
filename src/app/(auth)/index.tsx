@@ -31,29 +31,31 @@ function UserLogin() {
   };
 
   const handleLogin = () => {
-    // Verifique se os campos obrigatórios foram preenchidos
     if (name && email && password) {
-      // Verifique se o nome do usuário tem a primeira letra em maiúsculo
       if (name.charAt(0) === name.charAt(0).toUpperCase()) {
-        // Verifique se a senha tem pelo menos 6 caracteres
         if (password.length >= 6) {
           setName("");
           setEmail("");
           setPassword("");
           router.replace("/home/(tabs)");
         } else {
-          // Exiba uma mensagem de alerta informando que a senha precisa ter pelo menos 6 caracteres
-          Alert.alert("Senha inválida", "A senha deve ter pelo menos 6 caracteres.");
+          Alert.alert(
+            "Senha inválida",
+            "A senha deve ter pelo menos 6 caracteres."
+          );
         }
       } else {
-        // Exiba uma mensagem de alerta informando que o nome do usuário deve ter a primeira letra em maiúsculo
-        Alert.alert("Nome de usuário inválido", "O nome de usuário deve começar com letra maiúscula.");
+        Alert.alert(
+          "Nome de usuário inválido",
+          "O nome de usuário deve começar com letra maiúscula."
+        );
       }
     } else {
-      // Defina os campos que não foram preenchidos
       setRequiredFields(["name", "email", "password"]);
-      // Exiba uma mensagem de alerta informando que todos os campos são obrigatórios
-      Alert.alert("Campos obrigatórios", "Por favor, preencha todos os campos.");
+      Alert.alert(
+        "Campos obrigatórios",
+        "Por favor, preencha todos os campos."
+      );
     }
   };
 
@@ -90,10 +92,15 @@ function UserLogin() {
             style={[
               styles.passwordInput,
               requiredFields.includes("password") && styles.requiredField,
-              password && !requiredFields.includes("password") && styles.filledField,
+              password &&
+                !requiredFields.includes("password") &&
+                styles.filledField,
             ]}
           />
-          <TouchableOpacity onPress={togglePasswordVisibility} style={styles.eyeIcon}>
+          <TouchableOpacity
+            onPress={togglePasswordVisibility}
+            style={styles.eyeIcon}
+          >
             <FontAwesome5
               name={isPasswordVisible ? "eye-slash" : "eye"}
               size={20}
@@ -105,7 +112,10 @@ function UserLogin() {
       <TouchableOpacity onPress={handleLogin} style={styles.button}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => router.replace("Cadastro")} style={styles.button}>
+      <TouchableOpacity
+        onPress={() => router.replace("Cadastro")}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>Cadastrar-se</Text>
       </TouchableOpacity>
     </View>
@@ -113,17 +123,17 @@ function UserLogin() {
 }
 
 const styles = StyleSheet.create({
-  requiredField: {
-    borderColor: "red", // Cor de destaque para campos obrigatórios não preenchidos
-  },
-  filledField: {
-    borderColor: "green", // Cor de destaque para campos preenchidos corretamente
-  },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#E86687",
+  },
+  requiredField: {
+    borderColor: "red",
+  },
+  filledField: {
+    borderColor: "green",
   },
   header: {
     marginBottom: 20,

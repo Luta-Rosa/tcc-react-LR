@@ -11,7 +11,7 @@ export default function UserLayout() {
       <Stack.Screen
         name="index"
         options={{
-          headerTitle: "Perfil Usuário", 
+          headerTitle: "Perfil Usuário",
           headerLeft: () => (
             <Pressable
               style={{ marginRight: 16 }}
@@ -20,7 +20,6 @@ export default function UserLayout() {
               <FontAwesome name="arrow-left" size={20} />
             </Pressable>
           ),
-    
           headerStyle: {
             backgroundColor: "#85CC9B",
           },
