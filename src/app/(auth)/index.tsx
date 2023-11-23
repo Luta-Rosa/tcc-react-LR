@@ -43,26 +43,17 @@ function UserLogin() {
           router.replace("/home/(tabs)");
         } else {
           // Exiba uma mensagem de alerta informando que a senha precisa ter pelo menos 6 caracteres
-          Alert.alert(
-            "Senha inválida",
-            "A senha deve ter pelo menos 6 caracteres."
-          );
+          Alert.alert("Senha inválida", "A senha deve ter pelo menos 6 caracteres.");
         }
       } else {
         // Exiba uma mensagem de alerta informando que o nome do usuário deve ter a primeira letra em maiúsculo
-        Alert.alert(
-          "Nome de usuário inválido",
-          "O nome de usuário deve começar com letra maiúscula."
-        );
+        Alert.alert("Nome de usuário inválido", "O nome de usuário deve começar com letra maiúscula.");
       }
     } else {
       // Defina os campos que não foram preenchidos
       setRequiredFields(["name", "email", "password"]);
       // Exiba uma mensagem de alerta informando que todos os campos são obrigatórios
-      Alert.alert(
-        "Campos obrigatórios",
-        "Por favor, preencha todos os campos."
-      );
+      Alert.alert("Campos obrigatórios", "Por favor, preencha todos os campos.");
     }
   };
 
@@ -77,6 +68,7 @@ function UserLogin() {
           style={[
             styles.input,
             requiredFields.includes("name") && styles.requiredField,
+            name && !requiredFields.includes("name") && styles.filledField,
           ]}
         />
         <TextInput
@@ -86,6 +78,7 @@ function UserLogin() {
           style={[
             styles.input,
             requiredFields.includes("email") && styles.requiredField,
+            email && !requiredFields.includes("email") && styles.filledField,
           ]}
         />
         <View style={styles.passwordContainer}>
@@ -97,12 +90,10 @@ function UserLogin() {
             style={[
               styles.passwordInput,
               requiredFields.includes("password") && styles.requiredField,
+              password && !requiredFields.includes("password") && styles.filledField,
             ]}
           />
-          <TouchableOpacity
-            onPress={togglePasswordVisibility}
-            style={styles.eyeIcon}
-          >
+          <TouchableOpacity onPress={togglePasswordVisibility} style={styles.eyeIcon}>
             <FontAwesome5
               name={isPasswordVisible ? "eye-slash" : "eye"}
               size={20}
@@ -114,10 +105,7 @@ function UserLogin() {
       <TouchableOpacity onPress={handleLogin} style={styles.button}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => router.replace("Cadastro")}
-        style={styles.button}
-      >
+      <TouchableOpacity onPress={() => router.replace("Cadastro")} style={styles.button}>
         <Text style={styles.buttonText}>Cadastrar-se</Text>
       </TouchableOpacity>
     </View>
@@ -127,6 +115,9 @@ function UserLogin() {
 const styles = StyleSheet.create({
   requiredField: {
     borderColor: "red", // Cor de destaque para campos obrigatórios não preenchidos
+  },
+  filledField: {
+    borderColor: "green", // Cor de destaque para campos preenchidos corretamente
   },
   container: {
     flex: 1,
@@ -166,7 +157,6 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     borderWidth: 1,
-    borderColor: "#ccc",
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 10,
@@ -175,7 +165,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#ccc",
     borderRadius: 10,
     marginBottom: 10,
   },
