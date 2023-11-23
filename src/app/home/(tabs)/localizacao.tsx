@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import Header from "../../../components/header";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 function Localizacao() {
   const cardsData = [
@@ -9,33 +9,33 @@ function Localizacao() {
       title: "Santa Marcelina Saúde",
       imageSource: require("../../../../assets/outros/hosp1.png"),
       description: "Rua Santa Marcelina, 177 | Itaquera | São Paulo | SP",
-      phone: "+55 (11) 8765-4321",
+      phone: "(11) 2070-6000",
       icon: "map-marker-alt",
     },
     {
       title: "Hospital Amaral Carvalho",
       imageSource: require("../../../../assets/outros/002.jpg"),
       description: "Rua Dona Silvéria, 150 | Chácara Braz Miraglia | Jaú | SP",
-      phone: "+55 (14) 9876-5432",
+      phone: "(14) 3602-1200",
       icon: "map-marker-alt",
     },
     {
       title: "Hospital Israelita Albert Einstein",
       imageSource: require("../../../../assets/outros/3.png"),
       description: "Av. Albert Einstein, 701 | Morumbi | São Paulo | SP",
-      phone: "+55 (11) 8765-4321",
+      phone: "(11) 2151-1233",
       icon: "map-marker-alt",
     },
   ];
 
   return (
-    <View style={styles.container}>
-      <Header />
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.headerText}>Hospitais Próximos</Text>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {cardsData.map((card, index) => (
           <View key={index} style={styles.card}>
             <Image style={styles.cardImage} source={card.imageSource} />
-            
+
             <View>
               <Text style={styles.cardTitle}>{card.title}</Text>
             </View>
@@ -64,7 +64,7 @@ function Localizacao() {
           </View>
         ))}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 20,
   },
-
   card: {
     width: "100%",
     borderRadius: 10,
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
   cardContent: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     marginHorizontal: 16,
     marginBottom: 16,
   },
@@ -108,6 +107,7 @@ const styles = StyleSheet.create({
 
   textContainer: {
     flex: 1,
+    justifyContent: "center",
   },
 
   cardTitle: {
@@ -127,7 +127,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    marginLeft: 20,
+    marginLeft: 15,
+    marginTop: 0,
   },
 
   cardPhone: {
@@ -138,6 +139,13 @@ const styles = StyleSheet.create({
   },
   phoneIcon: {
     marginRight: 5, // Ajuste para alinhar mais para a esquerda
+  },
+  headerText: {
+    textAlign: "center",
+    paddingVertical: 10,
+    backgroundColor: "#E86687",
+    fontSize: 20,
+    color: "white",
   },
 });
 

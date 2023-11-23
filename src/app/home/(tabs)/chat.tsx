@@ -12,7 +12,8 @@ import { FontAwesome5 } from "@expo/vector-icons"; // Importe do ícone de lixei
 import Emoji from "react-native-emoji"; // importe dos emojis
 import EmojiSelector from "react-native-emoji-selector"; // Importe do seletor de emojis
 import { useRouter } from "expo-router";
-import Header from "../../../components/header";
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 function ChatScreen() {
   const [messages, setMessages] = useState([]);
@@ -33,21 +34,23 @@ function ChatScreen() {
     flatListRef.current.scrollToEnd({ animated: true });
   };
 
-  // apagar as mensagens
+  // apaga as mensagens
   const deleteMessage = (id) => {
     const updatedMessages = messages.filter((message) => message.id !== id);
     setMessages(updatedMessages);
   };
 
-  // Função para adicionar um emoji à mensagem
+  //  um emoji à mensagem
   const addEmojiToMessage = (emoji) => {
     setMessage(message + emoji);
     setEmojiSelectorVisible(false);
   };
 
   return (
-    <View style={styles.container}>
-      <Header />
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Mulheres Conectadas</Text>
+      </View>
       <FlatList
         ref={flatListRef}
         data={messages}
@@ -85,7 +88,7 @@ function ChatScreen() {
       {isEmojiSelectorVisible && (
         <EmojiSelector onEmojiSelected={addEmojiToMessage} />
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -96,14 +99,13 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   header: {
-    backgroundColor: "#F59CB7",
+    backgroundColor: "#E86687",
     padding: 15,
     alignItems: "center",
   },
   headerText: {
     fontSize: 20,
-    fontWeight: "bold",
-    color: "black",
+    color: "white",
   },
   messageContainer: {
     alignSelf: "flex-end",

@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -21,6 +22,7 @@ function UserLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [requiredFields, setRequiredFields] = useState([]);
 
   const router = useRouter();
 
@@ -29,10 +31,39 @@ function UserLogin() {
   };
 
   const handleLogin = () => {
-    setName("");
-    setEmail("");
-    setPassword("");
-    router.replace("/home/(tabs)");
+    // Verifique se os campos obrigatórios foram preenchidos
+    if (name && email && password) {
+      // Verifique se o nome do usuário tem a primeira letra em maiúsculo
+      if (name.charAt(0) === name.charAt(0).toUpperCase()) {
+        // Verifique se a senha tem pelo menos 6 caracteres
+        if (password.length >= 6) {
+          setName("");
+          setEmail("");
+          setPassword("");
+          router.replace("/home/(tabs)");
+        } else {
+          // Exiba uma mensagem de alerta informando que a senha precisa ter pelo menos 6 caracteres
+          Alert.alert(
+            "Senha inválida",
+            "A senha deve ter pelo menos 6 caracteres."
+          );
+        }
+      } else {
+        // Exiba uma mensagem de alerta informando que o nome do usuário deve ter a primeira letra em maiúsculo
+        Alert.alert(
+          "Nome de usuário inválido",
+          "O nome de usuário deve começar com letra maiúscula."
+        );
+      }
+    } else {
+      // Defina os campos que não foram preenchidos
+      setRequiredFields(["name", "email", "password"]);
+      // Exiba uma mensagem de alerta informando que todos os campos são obrigatórios
+      Alert.alert(
+        "Campos obrigatórios",
+        "Por favor, preencha todos os campos."
+      );
+    }
   };
 
   return (
@@ -43,13 +74,19 @@ function UserLogin() {
           placeholder="Nome de Usuário"
           value={name}
           onChangeText={(text) => setName(text)}
-          style={styles.input}
+          style={[
+            styles.input,
+            requiredFields.includes("name") && styles.requiredField,
+          ]}
         />
         <TextInput
           placeholder="Email"
           value={email}
           onChangeText={(text) => setEmail(text)}
-          style={styles.input}
+          style={[
+            styles.input,
+            requiredFields.includes("email") && styles.requiredField,
+          ]}
         />
         <View style={styles.passwordContainer}>
           <TextInput
@@ -57,7 +94,10 @@ function UserLogin() {
             secureTextEntry={!isPasswordVisible}
             value={password}
             onChangeText={(text) => setPassword(text)}
-            style={styles.passwordInput}
+            style={[
+              styles.passwordInput,
+              requiredFields.includes("password") && styles.requiredField,
+            ]}
           />
           <TouchableOpacity
             onPress={togglePasswordVisibility}
@@ -74,7 +114,10 @@ function UserLogin() {
       <TouchableOpacity onPress={handleLogin} style={styles.button}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => router.replace("Cadastro")} style={styles.button}>
+      <TouchableOpacity
+        onPress={() => router.replace("Cadastro")}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>Cadastrar-se</Text>
       </TouchableOpacity>
     </View>
@@ -82,6 +125,9 @@ function UserLogin() {
 }
 
 const styles = StyleSheet.create({
+  requiredField: {
+    borderColor: "red", // Cor de destaque para campos obrigatórios não preenchidos
+  },
   container: {
     flex: 1,
     justifyContent: "center",

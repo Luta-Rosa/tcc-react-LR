@@ -77,7 +77,7 @@ function UserRegistration() {
       Alert.alert("Aviso", "As senhas não coincidem!");
       return;
     }
- // aqui ele ve se os fone tem 11 caracteres
+    // aqui ele ve se os fone tem 11 caracteres
     if (phone.length !== 11) {
       Alert.alert("Aviso", "O telefone deve ter exatamente 10 dígitos!");
       return;

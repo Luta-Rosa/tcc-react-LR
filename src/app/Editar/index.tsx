@@ -29,7 +29,6 @@ const UserScreen = () => {
 
   
   const handleImagePick = () => {
-    
     Alert.alert(
       "Carregar imagem",
     );
@@ -59,7 +58,6 @@ const UserScreen = () => {
             value={name}
             onChangeText={(text) => setName(text)}
             placeholder="Digite seu nome"
-            
           />
         </View>
 

@@ -36,7 +36,7 @@ export default function Toolbar() {
           <View style={styles.modalView}>
             <View style={styles.information}>
               <View style={styles.textinfo}>
-                <Text style={styles.texto2}>Menu</Text>
+                <Text style={styles.texto2}>Nome do Usuário</Text>
               </View>
             </View>
             <View>
@@ -89,7 +89,12 @@ export default function Toolbar() {
                   </View>
                 </TouchableOpacity>
 
-             
+                <View style={styles.centralizar}>
+                  <Image
+                    source={require("../../assets/outros/logo.png")}
+                    style={styles.logo}
+                  />
+                </View>
               </View>
             </View>
           </View>
@@ -234,5 +239,14 @@ const styles = StyleSheet.create({
     marginBottom: vw(4),
     flexDirection: "row",
     alignItems: "center",
+  },
+  logo: {
+    width: 130,
+    height: 130,
+  },
+  centralizar: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 350,
   },
 });

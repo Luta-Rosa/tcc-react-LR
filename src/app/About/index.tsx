@@ -19,6 +19,12 @@ function About() {
           <Text style={styles.nome}>{dev.name}</Text>
         </View>
       ))}
+      <View style={styles.centralizar}>
+        <Image
+          source={require("../../../assets/outros/logo.png")}
+          style={styles.logo}
+        />
+      </View>
     </View>
   );
 }
@@ -72,6 +78,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 80,
     marginVertical: -47,
     fontSize: 16,
+  },
+  logo: {
+    width: 100,
+    height: 100,
+  },
+  centralizar: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 100,
   },
 });
 
