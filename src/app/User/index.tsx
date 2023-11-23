@@ -50,7 +50,7 @@ const UserScreen = () => {
             style={styles.input}
             value={name}
             onChangeText={(text) => setName(text)}
-            placeholder="Digite seu nome"
+            placeholder=""
             
           />
         </View>
@@ -61,7 +61,7 @@ const UserScreen = () => {
             style={styles.input}
             value={email}
             onChangeText={(text) => setEmail(text)}
-            placeholder="user@gmail.com"
+            placeholder=""
           />
         </View>
 
@@ -71,7 +71,7 @@ const UserScreen = () => {
             style={styles.input}
             value={phone}
             onChangeText={(text) => setPhone(text)}
-            placeholder="+55 (00) 00000-0000"
+            placeholder=""
           />
         </View>
 
@@ -81,7 +81,7 @@ const UserScreen = () => {
             style={styles.input}
             value={location}
             onChangeText={(text) => setLocation(text)}
-            placeholder="Digite sua localização"
+            placeholder=""
           />
         </View>
       </View>

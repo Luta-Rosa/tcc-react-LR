@@ -24,7 +24,7 @@ function SettingsScreen() {
       <TouchableOpacity onPress={() => {
           router.push("Privacidade");
         }}>
-        <SettingsCard title="Privacidade" icon="lock" children={undefined} />
+        <SettingsCard title=" Política e Privacidade" icon="lock" children={undefined} />
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => {

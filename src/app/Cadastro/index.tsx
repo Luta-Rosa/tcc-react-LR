@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Picker } from "@react-native-picker/picker";
@@ -20,6 +21,7 @@ const Header = () => (
 function UserRegistration() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -38,14 +40,59 @@ function UserRegistration() {
   };
 
   const handleRegistration = () => {
-    
+    if (
+      name === "" ||
+      email === "" ||
+      phone === "" ||
+      password === "" ||
+      confirmPassword === "" ||
+      selectedCity === ""
+    ) {
+      Alert.alert("Aviso", "Todos os campos são obrigatórios!");
+      return;
+    }
+    // aqui ele ve se a senha tem 6 caracteres
+    if (password.length < 6) {
+      Alert.alert("Aviso", "A senha deve ter pelo menos 6 caracteres!");
+      return;
+    }
+    // ele vai ver se o email é valido
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      Alert.alert("Aviso", "Por favor, insira um e-mail válido!");
+      return;
+    }
 
+    // ele ve se o nome do usuario começa com letra maiuscula
+    if (!/^[A-Z].*$/.test(name)) {
+      Alert.alert(
+        "Aviso",
+        "O nome do usuário deve começar com uma letra maiúscula!"
+      );
+      return;
+    }
+
+    // aqui ele ve se o confirmar senha esta igual a senha
+    if (password !== confirmPassword) {
+      Alert.alert("Aviso", "As senhas não coincidem!");
+      return;
+    }
+ // aqui ele ve se os fone tem 11 caracteres
+    if (phone.length !== 11) {
+      Alert.alert("Aviso", "O telefone deve ter exatamente 10 dígitos!");
+      return;
+    }
     console.log("Cidade selecionada:", selectedCity);
+
     setName("");
     setEmail("");
+    setPhone("");
     setSelectedCity("");
     setPassword("");
     setConfirmPassword("");
+
+    Alert.alert("Sucesso", "Os dados foram salvos com sucesso!");
+
     router.replace("(auth)");
   };
 
@@ -57,13 +104,20 @@ function UserRegistration() {
           placeholder="Nome de Usuário"
           value={name}
           onChangeText={(text) => setName(text)}
-          style={styles.input}
+          style={[styles.input, name !== "" && styles.validInput]}
         />
         <TextInput
           placeholder="Email"
           value={email}
           onChangeText={(text) => setEmail(text)}
-          style={styles.input}
+          style={[styles.input, email !== "" && styles.validInput]}
+        />
+        <TextInput
+          placeholder="Telefone"
+          value={phone}
+          onChangeText={(text) => setPhone(text)}
+          keyboardType="phone-pad"
+          style={[styles.input, phone !== "" && styles.validInput]}
         />
 
         <View style={styles.passwordContainer}>
@@ -72,7 +126,7 @@ function UserRegistration() {
             secureTextEntry={!isPasswordVisible}
             value={password}
             onChangeText={(text) => setPassword(text)}
-            style={styles.passwordInput}
+            style={[styles.passwordInput, password !== "" && styles.validInput]}
           />
           <TouchableOpacity
             onPress={togglePasswordVisibility}
@@ -91,7 +145,10 @@ function UserRegistration() {
             secureTextEntry={!isConfirmPasswordVisible}
             value={confirmPassword}
             onChangeText={(text) => setConfirmPassword(text)}
-            style={styles.passwordInput}
+            style={[
+              styles.passwordInput,
+              confirmPassword !== "" && styles.validInput,
+            ]}
           />
           <TouchableOpacity
             onPress={toggleConfirmPasswordVisibility}
@@ -107,7 +164,7 @@ function UserRegistration() {
         <Picker
           selectedValue={selectedCity}
           onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
-          style={styles.input}
+          style={[styles.input, selectedCity !== "" && styles.validInput]}
         >
           <Picker.Item label="Selecione a Cidade" value="" />
           <Picker.Item label="Lençóis Paulista" value="Lençóis Paulista" />
@@ -115,11 +172,8 @@ function UserRegistration() {
           <Picker.Item label="Jaú" value="Jaú" />
         </Picker>
       </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Salvar</Text>
-      </TouchableOpacity>
       <TouchableOpacity onPress={handleRegistration} style={styles.button}>
-        <Text style={styles.buttonText}>Já tenho conta</Text>
+        <Text style={styles.buttonText}>Salvar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -168,6 +222,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 10,
+  },
+  validInput: {
+    borderColor: "green", // cor do campo quando preenche
   },
   passwordContainer: {
     flexDirection: "row",

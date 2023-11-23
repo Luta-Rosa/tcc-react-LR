@@ -11,7 +11,7 @@ export default function UserLayout() {
       <Stack.Screen
         name="index"
         options={{
-          headerTitle: "", 
+          headerTitle: "Perfil Usuário", 
           headerLeft: () => (
             <Pressable
               style={{ marginRight: 16 }}

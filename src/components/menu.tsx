@@ -36,7 +36,7 @@ export default function Toolbar() {
           <View style={styles.modalView}>
             <View style={styles.information}>
               <View style={styles.textinfo}>
-                <Text style={styles.texto2}>Nome</Text>
+                <Text style={styles.texto2}>Menu</Text>
               </View>
             </View>
             <View>
@@ -89,13 +89,7 @@ export default function Toolbar() {
                   </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                  onPress={() => {
-                    router.push("Privacidade");
-                  }}
-                >
-                  <Text style={styles.text}>Política e Privacidade</Text>
-                </TouchableOpacity>
+             
               </View>
             </View>
           </View>
