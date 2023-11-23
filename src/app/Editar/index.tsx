@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   View,
   Text,
@@ -10,6 +9,7 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import Back from "../../components/back";
 
 const UserScreen = () => {
   const [name, setName] = useState("");
@@ -18,19 +18,24 @@ const UserScreen = () => {
   const [location, setLocation] = useState("");
   const [userImage, setUserImage] = useState(null);
 
+ 
   const handleUserSubmit = () => {
+    
     Alert.alert(
       "Dados do usuário enviados",
       `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nLocalização: ${location}`
     );
   };
 
+  
   const handleImagePick = () => {
-    Alert.alert("Carregar imagem");
+    Alert.alert(
+      "Carregar imagem",
+    );
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.backgroundImg}>
         <TouchableOpacity style={styles.imagePicker} onPress={handleImagePick}>
           <View style={styles.imageContainer}>
@@ -87,10 +92,13 @@ const UserScreen = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.saveButton} onPress={handleUserSubmit}>
+      <TouchableOpacity
+        style={styles.saveButton}
+        onPress={handleUserSubmit}
+      >
         <Text style={styles.saveButtonText}>Salvar</Text>
       </TouchableOpacity>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -99,10 +107,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFF",
   },
+
   label: {
     fontSize: 16,
     marginBottom: 5,
   },
+
   input: {
     fontSize: 16,
     height: 36,
@@ -111,10 +121,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingLeft: 10,
   },
+
   imagePicker: {
     alignItems: "center",
     marginTop: 20,
   },
+
   imageContainer: {
     backgroundColor: "#D4E8FF",
     width: 190,
@@ -124,12 +136,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+
   imagePickerText: {
     fontSize: 14,
     color: "gray",
     textDecorationLine: "underline",
     textAlign: "center",
   },
+
   card: {
     backgroundColor: "#D4E8FF",
     width: 360,
@@ -142,14 +156,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginLeft: "4%",
   },
+
   inputDiv: {
     width: "90%",
   },
+
   backgroundImg: {
     backgroundColor: "#496F99",
     height: 161,
     width: "auto",
   },
+
   saveButton: {
     backgroundColor: "#496F99",
     padding: 10,
@@ -158,11 +175,13 @@ const styles = StyleSheet.create({
     width: 100,
     alignSelf: "center",
   },
+
   saveButtonText: {
     color: "white",
     textAlign: "center",
     fontWeight: "bold",
   },
+
 });
 
 export default UserScreen;
